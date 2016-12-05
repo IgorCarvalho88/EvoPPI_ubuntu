@@ -1,0 +1,15 @@
+.dropdown-menu {
+    width: 95%;
+  
+}
+
+/*Increasing navabar heigth and font*/
+.navbar-fixed-top {
+    height: 70px; /* Whatever you want. */
+    font-size: 20px;
+}
+
+.navbar-brand
+    {
+      font-size: larger;
+    }
