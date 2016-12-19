@@ -41,17 +41,17 @@ router.get('/differentSpecies', function(req, res, next) {
 });
 
 /* GET upload page */
-router.get('/upload', function(req, res, next) {
+/*router.get('/upload', function(req, res, next) {
 
 	res.render('upload',{
 			title: 'Express'
 
 		});
 
-});
+});*/
 
 /* GET upload page */
-router.post('/upload', function(req, res, next) {
+/*router.post('/upload', function(req, res, next) {
 
 	//req.pipe(res);
 	var newFile = fs.createWriteStream(fileUploaded);
@@ -61,11 +61,11 @@ router.post('/upload', function(req, res, next) {
 		res.end('uploaded');
 	});
 
-});
+});*/
 
 /*Route called by ajax function for different species page only*/
 /*jsdefault --> jquery function  --> #fasta*/
-router.get('/differentSpecies/:fileName', function(req, res, next){
+router.get('/differentSpecies/:fileName/:fileName2', function(req, res, next){
 
 		
 	var gene = req.query.gene;
@@ -76,14 +76,24 @@ router.get('/differentSpecies/:fileName', function(req, res, next){
 	var numberDescriptions = req.query.numberDescriptions;
 	var minimumIdentity = req.query.minimumIdentity;
 
+
 	var especieName = req.params.fileName.replace(" ", "_");
+	var speciesName2 = req.params.fileName2.replace(" ", "_");
+
 	filePath = fasta.createFilePath(especieName);
+
+/*new functionalities*/
+	var locus_tag;
+	locus_tag = dictionary.searchForGene(especieName, gene);
+	//console.log('LOCUS: ' + locus_tag);
+
+	
 	
 	if (gene)
 	{
 		
-		var interactions1 = interactome.getGeneInteractions(gene, firstInteractome.fileName);
-		var interactions2 = interactome.getGeneInteractions(gene, secondInteractome.fileName);
+		var interactions1 = interactome.getGeneInteractions(locus_tag, firstInteractome.fileName);
+		var interactions2 = interactome.getGeneInteractions(locus_tag, secondInteractome.fileName);
 
 		/*If gene is not on interactome1*/
 		if(interactions1.length == 0)
@@ -97,7 +107,11 @@ router.get('/differentSpecies/:fileName', function(req, res, next){
 			genes = fasta.createArrayGenes(interactions1);
 
 			var cb =  function(arrayMatrix){
-					res.send(arrayMatrix);
+				/*new functionalities*/
+				// convert locus_tag to gene names
+				
+				var finalArray = dictionary.convertToGene(especieName, speciesName2, arrayMatrix);
+				res.send(finalArray);
 			}
 
 			fasta.createQuery(filePath, genes, interactions1, secondInteractome.fileName, e_value, lengthAlignment, numberDescriptions, minimumIdentity, cb);
@@ -108,7 +122,8 @@ router.get('/differentSpecies/:fileName', function(req, res, next){
 	else
 	{
 		var cb =  function(arrayMatrix){
-					res.send(arrayMatrix);
+			var finalArray = dictionary.convertToGene(especieName, speciesName2, arrayMatrix);
+					res.send(finalArray);
 			}
 		genes = wholeInteractome.createArrayGenes2(firstInteractome.fileName);
 		wholeInteractome.createQuery2(filePath, genes, firstInteractome.fileName, secondInteractome.fileName, e_value, lengthAlignment, numberDescriptions, minimumIdentity, cb);

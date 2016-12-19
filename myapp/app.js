@@ -4,6 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var config =  require('./config/config.js')
 
 var routes = require('./routes/index');
 var files = require('./routes/files');
@@ -15,6 +17,9 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+// connection to mongoose
+mongoose.connect(config.getDbConnectionString(), { server: { reconnectTries: Number.MAX_VALUE } });
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

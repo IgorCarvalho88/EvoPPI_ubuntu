@@ -61,10 +61,10 @@ exports.createQuery2 = function(filePath, genes, firstInteractome, interactome2,
 	  	var halfArray = compareInt22(interactome2, array);
 	  	//console.log(halfArray);
 	  	// complete the array with code1
-	  	var finalArray = compareFinal2(interactome2, halfArray);
+	  	//var finalArray = compareFinal2(interactome2, halfArray);
 	  	//console.log(finalArray);
 	  	// remove duplicates
-	  	finalArray = uniqBy(finalArray, JSON.stringify)
+	  	finalArray = uniqBy(halfArray, JSON.stringify)
 	  	//console.log(finalArray);
 	  	//interaction1TmpResult (interactions2, arrayMatrix);
 	  	cb(finalArray);
@@ -119,8 +119,8 @@ function compareFinal2(interactome2, halfArray)
 	return halfArray;
 }
 
-
-function compareInt22(interactome2, array)
+// corrigir esta funcao para por o wholeinteractome funcional
+/*function compareInt22(interactome2, array)
 {
 	// TODO verificar para genes que não existem na base de dados devolvida pelo blast
 	
@@ -129,8 +129,7 @@ function compareInt22(interactome2, array)
 	//console.log(array);
 	//console.log(interactome2);
 	for (var i = 0; i < array.length; i+=2) {
-		/*console.log(array[i]);
-		console.log(array[i+1]);*/
+		
 		for (var j = 1; j < array[i].length; j++) {
 			for (var k = 1; k < array[i+1].length; k++) {
 				var smallArray = [];
@@ -163,6 +162,41 @@ function compareInt22(interactome2, array)
 	}
 
 	console.log("BIG ARRAY: " + bigArray);
+
+	return bigArray;
+
+}*/
+
+
+// corrigir esta funcao para por o wholeinteractome funcional
+function compareInt22(interactome2, array)
+{
+	// TODO verificar para genes que não existem na base de dados devolvida pelo blast
+	
+	var bigArray = [];
+	found = false;
+	//console.log(array);
+	//console.log(interactome2);
+	for (var i = 0; i < array.length; i+=2) {
+		for (var j = 1; j < array[i].length; j++) {
+			for (var k = 1; k < array[i+1].length; k++) {
+
+				var smallArray = [];
+				smallArray.push(array[i][0]);
+				//smallArray.push('-');
+				smallArray.push(array[i][j]);
+				smallArray.push(array[i+1][0]);
+				//smallArray.push('-')
+				smallArray.push(array[i+1][k]);
+				//smallArray.push("teste");
+				smallArray.push('-')
+
+					bigArray.push(smallArray);
+			}
+		}
+	}
+
+	//console.log("BIG ARRAY: " + bigArray);
 
 	return bigArray;
 
@@ -252,7 +286,7 @@ exports.createArrayGenes2 = function(interactome1){
 	}
 	genes = uniqBy(genes, JSON.stringify)
 
-	console.log("GENES: " + genes);
+	//console.log("GENES: " + genes);
 	return genes;
 
 }

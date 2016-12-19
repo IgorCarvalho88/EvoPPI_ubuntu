@@ -8,12 +8,13 @@ var fileFolderPath = path.join(__dirname, '..', 'database/dictionary');
 var tempFile2 = path.join(__dirname, '..', 'database/tempFiles/temp2.gbff');
 
 
-exports.createDictionary = function(){
+exports.createDictionary = function(Dictionary){
 	var lineReader = readline.createInterface({
 		input: fs.createReadStream(tempFile2)
 	});
 
 	var createDictionaryPath;
+	var dictionary = new Dictionary();
 
 	lineReader.on('line', function (line) {
 		if(line.startsWith('  ORGANISM'))
@@ -22,6 +23,8 @@ exports.createDictionary = function(){
 			var name = line.substr(12, line.length -12);
 			name = name.replace(" ", "_");
 			name  = name + ".txt";
+			dictionary.species = name;
+			console.log(dictionary);
 			createDictionaryPath = path.join(__dirname, '..', 'database/dictionary/', name);
 			//console.log(createFastaPath);
 			lineReader.close();
@@ -34,7 +37,7 @@ exports.createDictionary = function(){
 	lineReader.on('close', () => {
 		var wstream = fs.createWriteStream(createDictionaryPath);
 		//console.log(createFastaPath);
-		createDictionaryAux(wstream);
+		createDictionaryAux(wstream, dictionary);
 		wstream.on('finish', function () {
 	  	console.log('file has been written');
 		});
@@ -42,20 +45,32 @@ exports.createDictionary = function(){
 		});
 }
 
-function createDictionaryAux(wstream){
+function createDictionaryAux(wstream, dictionary){
 	var lineReader = readline.createInterface({
  		input: fs.createReadStream(tempFile2)
 	});
-
+	var bigArray = [];
 	var gene;
 	var encontrou = false;
 	var flag = false;
 	var geneSynonym = false;
+
+	
+
+	/*var dataInJson = {
+			locus_tag : String,
+			gene : String,
+			gene_synonym : [],
+			geneID : String,
+			uniProt : String,
+		};*/
+
 	lineReader.on('line', function (line) {
 
 		line = line.trim();
 		if(line.startsWith("CDS"))
 		{
+			var smallArray = [];
 			flag = true;
 		}
 			// bloco dentro do CDS
@@ -80,6 +95,9 @@ function createDictionaryAux(wstream){
 				wstream.write("\t");
 				wstream.write(gene);
 				wstream.write("\t");
+
+				/*smallArray.push(line);
+				smallArray.push(gene);*/
 
 				encontrou = true;
 			}
@@ -233,6 +251,97 @@ exports.readFile = function(fileName){
 
 }
 
+exports.convertToGene = function (species1Name, species2Name, finalArray){
+	/*Species1*/
+	var addExtension1 = species1Name + ".txt";
+	var dictionary1;
+	var filePath1 = path.join(__dirname, '..', 'database/dictionary', addExtension1);
+	dictionary1 = fs.readFileSync(filePath1, 'utf8');
+	// array with dictionary1
+	var parsedFile1 = parseFile(dictionary1, species1Name);
+
+	/*Species2*/
+	var addExtension2 = species2Name + ".txt";
+	var dictionary2;
+	var filePath2 = path.join(__dirname, '..', 'database/dictionary', addExtension2);
+	dictionary2 = fs.readFileSync(filePath2, 'utf8');
+	// array with dictionary2
+	var parsedFile2 = parseFile(dictionary2, species2Name);
+
+	var newArray = convertToNewArray(parsedFile1.fileName, parsedFile2.fileName, finalArray);
+
+	return newArray;
+
+}
+
+function convertToNewArray(parsedFile1, parsedFile2, finalArray)
+{
+	
+	var newArray = [];
+	for (var i = 0; i < finalArray.length; i++) {
+		var array = [];
+		for (var j = 0; j < finalArray[i].length; j+=2) {
+
+			// search dictionary1
+			for (var k = 0; k < parsedFile1.length; k++) {
+				if(finalArray[i][j] == parsedFile1[k][0])
+				{
+					//console.log("entro");
+					array.push(parsedFile1[k][1]);
+					// break
+				}
+			}
+			// search dictionary2
+			for (var m = 0; m < parsedFile2.length; m++) {
+				if(finalArray[i][j+1] == parsedFile2[m][0])
+				{
+					//console.log("entro2");
+					array.push(parsedFile2[m][1]);
+					// break
+				}
+			}
+
+		}
+		array.push(finalArray[i][4]);
+		newArray.push(array);
+	}
+	//console.log(newArray);
+	return newArray;
+}
+
+
+
+
+exports.searchForGene = function (fileName, gene)
+{
+	//TODO
+	//Receive interactome as parameter, to show on client too
+	//console.log("entro");
+	var addExtension = fileName + ".txt";
+	var data;
+	var filePath = path.join(__dirname, '..', 'database/dictionary', addExtension);
+	data = fs.readFileSync(filePath, 'utf8');
+
+	var teste = parseFile(data, fileName);
+	var dictionary = teste.fileName;
+
+	//console.log(dictionary);
+
+	var locus_tag;
+
+	for (var i = 0; i < dictionary.length; i++) {
+		for (var j = 1; j < dictionary[i].length; j++) {
+				if(dictionary[i][j] == gene)
+				{
+					locus_tag = dictionary[i][0];
+				}
+		}
+			
+	}
+	return locus_tag;	
+
+}
+
 function parseFile(data, fileName){
 	var aux2;
 
@@ -243,6 +352,7 @@ function parseFile(data, fileName){
 
 	// removing whitspaces
 		var aux = data.split("\n");
+
 
 		aux.forEach(function(item){
 			aux2 = item.split("\t");
@@ -256,6 +366,7 @@ function parseFile(data, fileName){
 		b = uniqBy(dataInJson.fileName, JSON.stringify)
 		//console.log(b);
 		dataInJson.fileName = b;
+		//console.log(dataInJson);
 		
 		return dataInJson;
 

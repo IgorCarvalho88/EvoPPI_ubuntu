@@ -531,7 +531,7 @@ function interaction1TmpResult (interactions1, tmpResult, lengthAlignment, minim
 		auxiliarArray.push(interactGene);
 	}
 
-	console.log(auxiliarArray);
+	//console.log(auxiliarArray);
  	
 	return auxiliarArray;
 };
@@ -593,19 +593,6 @@ exports.forDownload = function(finalResult){
 		writeStream.end();
 }
 
-
-function parseFile(data, fileName){
-	var aux2;
-
-	var dataInJson = {
-			fileName:[]
-
-		};
-
-		var aux = data.split("\s");
-		//console.log(aux);
-
-}
 
 
 

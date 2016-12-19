@@ -6,7 +6,6 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="javascripts/bootstrap.min.js"></script>
-    <script src="javascripts/select2.min.js"></script>
     <script src="javascripts/typeahead.jquery.min.js"></script>
     <script src="javascripts/bloodhound.min.js"></script>
     <script src="javascripts/typeahead.bundle.min.js"></script>
@@ -154,7 +153,8 @@
 
         $("#fasta").on('submit', function(event){
             var x = document.getElementById("mySelect").value;
-            var url = "/differentSpecies/" + x;
+            var x2 = document.getElementById("mySelect2").value;
+            var url = "/differentSpecies/" + x + "/" + x2;
             event.preventDefault();
             $.ajax(url, {
                 type: 'GET',

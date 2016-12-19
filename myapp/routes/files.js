@@ -9,11 +9,14 @@ var readline = require('readline');
 var fs = require('fs');
 var bodyParser = require('body-parser');
 
+/*Database*/
+var Dictionary = require('./../models/mongoDictionary.js');
+//var Gene = require('./../models/gene.js');
+
 var fileUploaded = path.join(__dirname, '..', 'database/tempFiles/temp2.gbff');
 
 /* GET upload page */
-router.get('/upload', function(req, res, next) {
-	console.log("entro");
+router.get('/', function(req, res, next) {
 
 	res.render('upload',{
 			title: 'Express'
@@ -23,7 +26,7 @@ router.get('/upload', function(req, res, next) {
 });
 
 /* GET upload page */
-router.post('/upload', function(req, res, next) {
+router.post('/', function(req, res, next) {
 
 	//req.pipe(res);
 	var newFile = fs.createWriteStream(fileUploaded);
@@ -43,7 +46,7 @@ router.post('/createFastaFile', function(req, res, next) {
 
 router.post('/createDictionaryFile', function(req, res, next) {
 	console.log("entro");
-	dictionary.createDictionary();
+	dictionary.createDictionary(Dictionary);
 
 });
 

@@ -1,0 +1,4 @@
+Drosophila_melanogaster.txt	Drosophila_melanogaster.txt
+Drosophila_melanogaster_teste.txt	Drosophila_melanogaster_teste2.txt
+CG17636
+0.05	204	3	100
