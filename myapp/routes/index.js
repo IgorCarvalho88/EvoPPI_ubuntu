@@ -4,6 +4,7 @@ var interactome = require('./../models/interactome.js');
 var dictionary = require('./../models/dictionary.js');
 var fasta = require('./../models/fasta.js');
 var wholeInteractome = require('./../models/wholeInteractome.js');
+var level = require('./../models/level.js');
 var path = require('path');
 var readline = require('readline');
 var fs = require('fs');
@@ -79,7 +80,7 @@ router.get('/differentSpecies/:fileName/:fileName2', function(req, res, next){
 
 	var especieName = req.params.fileName.replace(" ", "_");
 	var speciesName2 = req.params.fileName2.replace(" ", "_");
-
+	// filepath to read from file fasta from species1 and write on a query file(fasta->query)
 	filePath = fasta.createFilePath(especieName);
 
 /*new functionalities*/
@@ -88,11 +89,12 @@ router.get('/differentSpecies/:fileName/:fileName2', function(req, res, next){
 	//console.log('LOCUS: ' + locus_tag);
 
 	
-	
+	// condition if gene is empty or not- if is empty predict interactome for species 2
 	if (gene)
 	{
 		
 		var interactions1 = interactome.getGeneInteractions(locus_tag, firstInteractome.fileName);
+		interactome.saveInteractions1(interactions1);
 		var interactions2 = interactome.getGeneInteractions(locus_tag, secondInteractome.fileName);
 
 		/*If gene is not on interactome1*/
@@ -103,13 +105,12 @@ router.get('/differentSpecies/:fileName/:fileName2', function(req, res, next){
 		}
 		else
 		{
-			
+			// this will create an array with gene selected and all gene's interactions example: [x1,x2,x3,x4...] -> query.txt
 			genes = fasta.createArrayGenes(interactions1);
 
 			var cb =  function(arrayMatrix){
 				/*new functionalities*/
 				// convert locus_tag to gene names
-				
 				var finalArray = dictionary.convertToGene(especieName, speciesName2, arrayMatrix);
 				res.send(finalArray);
 			}
@@ -125,6 +126,7 @@ router.get('/differentSpecies/:fileName/:fileName2', function(req, res, next){
 			var finalArray = dictionary.convertToGene(especieName, speciesName2, arrayMatrix);
 					res.send(finalArray);
 			}
+			// this will create an array with all genes for -> query.txt
 		genes = wholeInteractome.createArrayGenes2(firstInteractome.fileName);
 		wholeInteractome.createQuery2(filePath, genes, firstInteractome.fileName, secondInteractome.fileName, e_value, lengthAlignment, numberDescriptions, minimumIdentity, cb);
 	}
@@ -204,6 +206,72 @@ router.post('/download/', function(req, res, next){
 
 router.get('/download2/', function(req, res, next){
 	 res.download(tempFile);
+});
+
+router.get('/level/:fileName/:fileName2', function(req, res, next){
+	console.log(" Rota : entro");
+	var gene = req.query.gene;
+	var firstInteractome = interactome.readFile(req.query.interactome1);
+	var secondInteractome = interactome.readFile(req.query.interactome2);
+	var e_value = req.query.e_value;
+	var lengthAlignment = req.query.lengthAlignment;
+	var numberDescriptions = req.query.numberDescriptions;
+	var minimumIdentity = req.query.minimumIdentity;
+	//var finalResult = req.body;
+
+	var especieName = req.params.fileName.replace(" ", "_");
+	var speciesName2 = req.params.fileName2.replace(" ", "_");
+
+	// filepath to read from file fasta from species1 and write on a query file(fasta->query)
+	filePath = fasta.createFilePath(especieName);
+
+	var interactions1 = interactome.loadInteractions1();
+
+	var interactomeLevel = [];
+	var flag = false;
+	// this will create an array with all genes from second level and respective interactions
+	for (var i = 0; i < interactions1.length; i++) {
+		if(interactions1[i][0]!= interactions1[i][1])
+		{
+			var interactions = interactome.getGeneInteractions(interactions1[i][1], firstInteractome.fileName);
+			//console.log(interactions);
+			for(j = 0; j < interactions.length; j++)
+			{
+				// this for is only to remove the interaction that exists in the previous level
+				for (var k = 0; k < interactions1.length; k++) {
+						if(interactions[j][0] == interactions1[k][1] && interactions[j][1] == interactions1[k][0])
+						{
+							flag = true;
+						}
+				}
+				if(!flag)
+				{
+					interactomeLevel.push(interactions[j]);
+				}
+				flag = false;
+			}
+		}
+			
+
+	}
+	//console.log(interactomeLevel);
+
+	var cb =  function(arrayMatrix){
+		var finalArray = dictionary.convertToGene(especieName, speciesName2, arrayMatrix);
+		res.send(finalArray);
+		//console.log(finalArray)
+	}
+	// this will create an array with all genes for -> query.txt
+	interactome.saveInteractions1(interactomeLevel);
+	genes = level.createArrayGenes(interactomeLevel);
+	level.createQuery(filePath, genes, interactions1, interactomeLevel, secondInteractome.fileName, e_value, lengthAlignment, numberDescriptions, minimumIdentity, cb);
+	
+
+	//fasta.forDownload(finalResult);
+	 //res.download(tempFile);
+	//console.log(finalResult.query2);
+	
+	//res.send("done");
 });
 
 

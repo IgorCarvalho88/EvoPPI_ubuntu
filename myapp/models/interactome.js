@@ -5,6 +5,9 @@ var path = require('path');
 // creating path to database
 var fileFolderPath = path.join(__dirname, '..', 'database/interactome');
 
+// path for temp interactions when user asks for next level
+var tempFile = path.join(__dirname, '..', 'database/tempFiles/tempState.txt');
+
 
 exports.getAllInteractomes = function(fileName){
 
@@ -48,36 +51,7 @@ exports.readFile = function(fileName){
 
 }
 
-function parseFile(data, fileName){
-	var aux2;
 
-	var dataInJson = {
-			fileName:[]
-
-		};
-
-	// removing whitspaces
-	
-		var aux = data.split("\n");
-
-		
-
-		aux.forEach(function(item){
-			aux2 = item.split("\t");
-			aux2.forEach(function(part,index,theArray){
-				theArray[index] = part.trim();
-			});
-			//var gene = toObject(aux2);
-			dataInJson.fileName.push(aux2);
-		});
-		// remove duplicate elements
-		b = uniqBy(dataInJson.fileName, JSON.stringify)
-		//console.log(b);
-		dataInJson.fileName = b;
-
-		return dataInJson;
-
-}
 
 /*function constructJson(jsonKey, jsonValue){
    var jsonObj = {"key1": jsonValue};
@@ -147,9 +121,72 @@ exports.compare = function(interactome1, interactome2){
 	return finalArray;
 };
 
+exports.saveInteractions1 = function(interactions1)
+{
+	var row;
+		var writeStream = fs.createWriteStream(tempFile);
+		for (var i = 0; i < interactions1.length; i++) {
+			//console.log(interactions1[i]);
+			// this if is because to not write /n on last line
+			if(i != (interactions1.length-1))
+			{
+				row = interactions1[i][0] + "\t" + interactions1[i][1] + "\n";
+
+			}
+			else
+			{
+				row = interactions1[i][0] + "\t" + interactions1[i][1];
+			}
+			
+			writeStream.write(row);
+		}
+		writeStream.end();
+}
+
+exports.loadInteractions1 =  function()
+{
+	console.log("Load entro");
+	var data;
+	data = fs.readFileSync(tempFile, 'utf8');
+	var parsedFile = parseFile(data, "teste");
+	return parsedFile.fileName;
+
+}
+
 
 
 // auxiliar functions
+
+function parseFile(data, fileName){
+	var aux2;
+
+	var dataInJson = {
+			fileName:[]
+
+		};
+
+	// removing whitspaces
+	
+		var aux = data.split("\n");
+
+		
+
+		aux.forEach(function(item){
+			aux2 = item.split("\t");
+			aux2.forEach(function(part,index,theArray){
+				theArray[index] = part.trim();
+			});
+			//var gene = toObject(aux2);
+			dataInJson.fileName.push(aux2);
+		});
+		// remove duplicate elements
+		b = uniqBy(dataInJson.fileName, JSON.stringify)
+		//console.log(b);
+		dataInJson.fileName = b;
+
+		return dataInJson;
+
+}
 
 function addMissingGenes(interactome2, arrayCompare)
 {

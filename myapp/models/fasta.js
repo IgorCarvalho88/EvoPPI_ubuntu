@@ -419,7 +419,7 @@ function compareFinal(interactions2, halfArray)
 		{
 			array.push(interactions2[i][0]);
 			array.push(interactions2[i][1]);
-			array.push("especies2");
+			array.push("species2");
 			halfArray.push(array);
 
 		}
@@ -452,7 +452,7 @@ function compareInt2(interactome2, array)
 							smallArray.push(array[0][i]);
 							smallArray.push(array[j][0]);
 							smallArray.push(array[j][k]);
-							smallArray.push("especies1 and especies2");
+							smallArray.push("species1 and species2");
 							
 						}
 				}
@@ -462,7 +462,7 @@ function compareInt2(interactome2, array)
 						smallArray.push(array[0][i]);
 						smallArray.push(array[j][0]);
 						smallArray.push(array[j][k]);
-						smallArray.push("especies1");
+						smallArray.push("species1");
 
 					}
 					bigArray.push(smallArray);

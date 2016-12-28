@@ -280,29 +280,61 @@ function convertToNewArray(parsedFile1, parsedFile2, finalArray)
 	var newArray = [];
 	for (var i = 0; i < finalArray.length; i++) {
 		var array = [];
-		for (var j = 0; j < finalArray[i].length; j+=2) {
+		// this is a test for the case that second species has an interaction that first species dont have
+		if(finalArray[i].length > 3)
+		{
+			for (var j = 0; j < finalArray[i].length; j+=2) {
 
-			// search dictionary1
-			for (var k = 0; k < parsedFile1.length; k++) {
-				if(finalArray[i][j] == parsedFile1[k][0])
-				{
-					//console.log("entro");
-					array.push(parsedFile1[k][1]);
-					// break
+				// search dictionary1
+				for (var k = 0; k < parsedFile1.length; k++) {
+					if(finalArray[i][j] == parsedFile1[k][0])
+					{
+						//console.log("entro");
+						array.push(parsedFile1[k][1]);
+						// break
+					}
+					
 				}
-			}
-			// search dictionary2
-			for (var m = 0; m < parsedFile2.length; m++) {
-				if(finalArray[i][j+1] == parsedFile2[m][0])
-				{
-					//console.log("entro2");
-					array.push(parsedFile2[m][1]);
-					// break
+				// search dictionary2
+				for (var m = 0; m < parsedFile2.length; m++) {
+					if(finalArray[i][j+1] == parsedFile2[m][0])
+					{
+						//console.log("entro2");
+						array.push(parsedFile2[m][1]);
+						// break
+					}
 				}
-			}
 
+			}
+			array.push(finalArray[i][4]);
+			
 		}
-		array.push(finalArray[i][4]);
+		else
+		{
+		
+				// search dictionary1
+				for (var k = 0; k < parsedFile1.length; k++) {
+					if(finalArray[i][0] == parsedFile1[k][0])
+					{
+						//console.log("entro");
+						array.push("-");
+						array.push(parsedFile1[k][1]);
+						// break
+					}
+					// this is a test for the case that second species has an interaction that first species dont have
+				}
+				// search dictionary2
+				for (var m = 0; m < parsedFile2.length; m++) {
+					if(finalArray[i][1] == parsedFile2[m][0])
+					{
+						//console.log("entro2");
+						array.push("-");
+						array.push(parsedFile2[m][1]);
+						// break
+					}
+				}
+				array.push("species2")
+		}
 		newArray.push(array);
 	}
 	//console.log(newArray);
