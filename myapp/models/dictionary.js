@@ -341,6 +341,48 @@ function convertToNewArray(parsedFile1, parsedFile2, finalArray)
 	return newArray;
 }
 
+exports.convertToGeneSameSpecies = function (species1Name, finalArray){
+	/*Species1*/
+	var addExtension1 = species1Name + ".txt";
+	var dictionary1;
+	var filePath1 = path.join(__dirname, '..', 'database/dictionary', addExtension1);
+	dictionary1 = fs.readFileSync(filePath1, 'utf8');
+	// array with dictionary1
+	var parsedFile1 = parseFile(dictionary1, species1Name);
+
+	var newArray = [];
+	for (var i = 0; i < finalArray.length; i++) {
+		var array = [];
+		for (var j = 0; j < parsedFile1.length; j++) {
+
+			if(finalArray[i][0] == parsedfile1[j][0])
+			{
+				array.push(parsedFile1[j][1]);
+			}
+
+		}
+// mudar para k?
+		for (var j = 0; j < parsedFile1.length; j++) {
+
+			if(finalArray[i][1] == parsedfile1[j][0])
+			{
+				array.push(parsedFile1[j][1]);
+			}
+
+		}
+
+		array.push(finalArray[i][2]);
+		
+		
+		newArray.push(array);
+	}
+	//console.log(newArray);
+	return newArray;
+	//var newArray = convertToNewArray(parsedFile1.fileName, parsedFile2.fileName, finalArray);
+
+	//return newArray;
+
+}
 
 
 

@@ -176,6 +176,11 @@ router.get('/interactome/', function(req, res, next){
 	var finalResult;
 
 	var gene = req.query.gene;
+	//var speciesName = req.params.fileName.replace(" ", "_");
+
+	/*new functionalities*/
+	/*var locus_tag;
+	locus_tag = dictionary.searchForGene(speciesName, gene);*/
 	
 	firstInteractome = interactome.readFile(req.query.interactome1);
 	secondInteractome = interactome.readFile(req.query.interactome2);
@@ -185,6 +190,8 @@ router.get('/interactome/', function(req, res, next){
 
 	
 	finalResult = interactome.compare(interactions1, interactions2);
+	console.log(finalResult);
+	//var finalArray = dictionary.convertToGene(speciesName, speciesName2, arrayMatrix);
 	res.send(finalResult);
 
 
@@ -226,7 +233,7 @@ router.get('/level/:fileName/:fileName2', function(req, res, next){
 	filePath = fasta.createFilePath(especieName);
 
 	var interactions1 = interactome.loadInteractions1();
-
+	console.log(interactions1);
 	var interactomeLevel = [];
 	var flag = false;
 	// this will create an array with all genes from second level and respective interactions
@@ -234,7 +241,7 @@ router.get('/level/:fileName/:fileName2', function(req, res, next){
 		if(interactions1[i][0]!= interactions1[i][1])
 		{
 			var interactions = interactome.getGeneInteractions(interactions1[i][1], firstInteractome.fileName);
-			//console.log(interactions);
+			console.log(interactions);
 			for(j = 0; j < interactions.length; j++)
 			{
 				// this for is only to remove the interaction that exists in the previous level

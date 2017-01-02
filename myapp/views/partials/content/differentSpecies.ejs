@@ -4,16 +4,23 @@
                 <h1 class="page-header">EvoPPI
                     <small>Species</small>
                 </h1>
-                <ol class="breadcrumb">
+                <!-- <ol class="breadcrumb">
                     <li><a href="index.html">Home</a>
                     </li>
                     <li class="active">Full Width Page</li>
-                </ol>
+                </ol> -->
+                <ul class="nav nav-tabs">
+                  <li class="active"><a data-toggle="tab" href="#species">Compare Species</a></li>
+                  <li><a data-toggle="tab" href="#sameSpeciesDiv">Compare Same Species</a></li>
+                </ul>
             </div>
         </div>
 
-    
-         <!--Content for Species-->
+        
+<!--Content for Species-->
+    <div class="tab-content">
+        <div id="species" class="tab-pane fade in active">
+         
         <div class = "row">
             <div class="col-lg-6 species1">
                 <div class="form-group">
@@ -190,6 +197,106 @@
   </div>
 </div>
             
-<!--</div>-->
+</div><!-- closing the tab div for different species-->
+
+<div id="sameSpeciesDiv" class="tab-pane fade">
+    <!--Content for Species-->
+            <div class = "row">
+                <div class="col-lg-12 species1">
+                    <div class="form-group">
+                        <label class="control-label" for="company">Species1</label>
+                            <div class="">
+                                <select id="sameSpeciesMySelect" class="form-control" onchange = "sameSpeciesMySelect()">
+                                <option disabled selected value> -- select an option -- </option>
+                                    <% species.forEach(function(species2){%>
+                                        <option><%= species2 %></option>
+                                    <% }); %>
+                                </select> 
+                            </div>
+                    </div>
+                </div>
+                </div>
+
+                <!-- <div class="col-lg-6 species1">
+                    <div class="form-group">
+                        <label class="control-label" for="company">Species2</label>
+                            <div class="">
+                                <select id="sameSpeciesMySelect2" class="form-control" onchange = "sameSpeciesMySelect2()">
+                                <option disabled selected value> -- select an option -- </option>
+                                    <% species.forEach(function(species2){%>
+                                        <option><%= species2 %></option>
+                                    <% }); %>
+                                </select> 
+                            </div>
+                    </div>
+                </div>
+            </div> -->
+
+
+        <form id = "sameSpecies">
+
+            <!--Content for interactome-->
+            <div class = "row">
+                <div class="col-lg-6 species1">
+                    <div class="form-group">
+                        <label class="control-label" for="company">Interactome1</label>
+                            <div class="">
+                                <select name = interactome1 id="sameSpeciesInteractome1" class="form-control">
+                                </select> 
+                            </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 species1">
+                    <div class="form-group">
+                        <label class="control-label" for="company">Interactome2</label>
+                            <div class="">
+                                <select name = interactome2 id="sameSpeciesInteractome2" class="form-control">
+                                </select> 
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Content for gene-->
+            <div class = "row">
+                <div class="col-lg-6 col-lg-offset-3 species1">
+                        <fieldset>
+                            <div class="form-group">
+                                <label for="query">Genes</label>
+                                <input class="form-control" name="gene" id="sameSpeciesQuery" placeholder="Start typing something to search genes" type="text">              
+                            </div>
+                        </fieldset>
+                 </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Compare</button>
+        </form>
+
+         
+     <!--<div class="container">-->
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Results</h3>
+                    </div>
+                    <table id = "table2" class="table">
+                         <thead>
+                        <tr>
+                            <th>Interacts</th>
+                            <th>Species</th>
+                        </tr>
+                        </thead>
+                        <tbody id = "sameSpeciesTbody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+                
+    <!--</div>-->
+  </div>
+  </div>
 
 <hr>
