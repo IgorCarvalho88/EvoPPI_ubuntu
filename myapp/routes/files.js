@@ -41,13 +41,15 @@ router.post('/', function(req, res, next) {
 /* GET upload page */
 router.post('/createFastaFile', function(req, res, next) {
 	fasta.createFasta();
+	dictionary.createDictionary();
+	res.send("databases created");
 
 });
 
-router.post('/createDictionaryFile', function(req, res, next) {
+/*router.post('/createDictionaryFile', function(req, res, next) {
 	console.log("entro");
 	dictionary.createDictionary(Dictionary);
 
-});
+});*/
 
 module.exports = router;

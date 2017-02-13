@@ -48,6 +48,12 @@ var lengthAlignment = data[3][1];
 var numberDescriptions = data[3][2];
 var minimumIdentity = data[3][3];
 
+console.log(e_value);
+console.log(lengthAlignment);
+console.log(numberDescriptions);
+console.log(minimumIdentity);
+
+
 /*new functionalities*/
 	var locus_tag;
 	locus_tag = dictionary.searchForGene(species1, gene);

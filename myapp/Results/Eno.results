@@ -1,0 +1,333 @@
+Drosophila_melanogaster_DroID.txt
+Drosophila_melanogaster_DroID_Flybase.txt
+0.05
+100
+4
+40
+file has been written
+[ [ 'Dmel_CG17654', 'Dmel_CG5271' ],
+  [ 'Dmel_CG17654', 'Dmel_CG6668' ] ]
+[ 'Eno', 'Eno', 'RpS27A', 'RpS27A', 'species1' ]
+Eno	Eno	RpS27A	RpS27A	species1
+
+[ 'Eno', 'Eno', 'atl', 'atl', 'species1' ]
+Eno	Eno	atl	atl	species1
+
+[ '-', 'Eno', '-', 'CG10638', 'species2' ]
+-	Eno	-	CG10638	species2
+
+[ '-', 'Eno', '-', 'Moe', 'species2' ]
+-	Eno	-	Moe	species2
+
+[ '-', 'Eno', '-', 'FK506-bp2', 'species2' ]
+-	Eno	-	FK506-bp2	species2
+
+[ '-', 'Eno', '-', 'Inos', 'species2' ]
+-	Eno	-	Inos	species2
+
+[ '-', 'Eno', '-', 'ATPsynbeta', 'species2' ]
+-	Eno	-	ATPsynbeta	species2
+
+[ '-', 'Eno', '-', 'CG11267', 'species2' ]
+-	Eno	-	CG11267	species2
+
+[ '-', 'Eno', '-', 'Prx2540-2', 'species2' ]
+-	Eno	-	Prx2540-2	species2
+
+[ '-', 'Eno', '-', 'Sod', 'species2' ]
+-	Eno	-	Sod	species2
+
+[ '-', 'Eno', '-', 'PHGPx', 'species2' ]
+-	Eno	-	PHGPx	species2
+
+[ '-', 'Eno', '-', 'Prosbeta5', 'species2' ]
+-	Eno	-	Prosbeta5	species2
+
+[ '-', 'Eno', '-', 'Akap200', 'species2' ]
+-	Eno	-	Akap200	species2
+
+[ '-', 'Eno', '-', 'Mer', 'species2' ]
+-	Eno	-	Mer	species2
+
+[ '-', 'Eno', '-', 'CG14715', 'species2' ]
+-	Eno	-	CG14715	species2
+
+[ '-', 'Eno', '-', 'Chd64', 'species2' ]
+-	Eno	-	Chd64	species2
+
+[ '-', 'Eno', '-', 'Scp1', 'species2' ]
+-	Eno	-	Scp1	species2
+
+[ '-', 'Eno', '-', 'Pglym78', 'species2' ]
+-	Eno	-	Pglym78	species2
+
+[ '-', 'Eno', '-', 'Ntf-2', 'species2' ]
+-	Eno	-	Ntf-2	species2
+
+[ '-', 'Eno', '-', 'GstE6', 'species2' ]
+-	Eno	-	GstE6	species2
+
+[ '-', 'awd', '-', 'Eno', 'species2' ]
+-	awd	-	Eno	species2
+
+[ '-', 'EF2', '-', 'Eno', 'species2' ]
+-	EF2	-	Eno	species2
+
+[ '-', 'Argk', '-', 'Eno', 'species2' ]
+-	Argk	-	Eno	species2
+
+[ '-', 'Adh', '-', 'Eno', 'species2' ]
+-	Adh	-	Eno	species2
+
+[ '-', 'Ald', '-', 'Eno', 'species2' ]
+-	Ald	-	Eno	species2
+
+[ '-', 'chic', '-', 'Eno', 'species2' ]
+-	chic	-	Eno	species2
+
+[ '-', 'AnxB10', '-', 'Eno', 'species2' ]
+-	AnxB10	-	Eno	species2
+
+[ '-', 'Eno', '-', 'regucalcin', 'species2' ]
+-	Eno	-	regucalcin	species2
+
+[ '-', 'Eno', '-', 'Prosalpha1', 'species2' ]
+-	Eno	-	Prosalpha1	species2
+
+[ '-', 'Eno', '-', 'Trxr-1', 'species2' ]
+-	Eno	-	Trxr-1	species2
+
+[ '-', 'Eno', '-', 'Mlc2', 'species2' ]
+-	Eno	-	Mlc2	species2
+
+[ '-', 'Eno', '-', 'Df31', 'species2' ]
+-	Eno	-	Df31	species2
+
+[ '-', 'Eno', '-', 'Hop', 'species2' ]
+-	Eno	-	Hop	species2
+
+[ '-', 'Eno', '-', 'CG2852', 'species2' ]
+-	Eno	-	CG2852	species2
+
+[ '-', 'Eno', '-', 'CG2862', 'species2' ]
+-	Eno	-	CG2862	species2
+
+[ '-', 'Eno', '-', '14-3-3epsilon', 'species2' ]
+-	Eno	-	14-3-3epsilon	species2
+
+[ '-', 'Eno', '-', 'Pgk', 'species2' ]
+-	Eno	-	Pgk	species2
+
+[ '-', 'Eno', '-', 'eIF-5A', 'species2' ]
+-	Eno	-	eIF-5A	species2
+
+[ '-', 'Eno', '-', 'Trx-2', 'species2' ]
+-	Eno	-	Trx-2	species2
+
+[ '-', 'Eno', '-', 'capt', 'species2' ]
+-	Eno	-	capt	species2
+
+[ '-', 'Eno', '-', 'Pgd', 'species2' ]
+-	Eno	-	Pgd	species2
+
+[ '-', 'Eno', '-', 'kdn', 'species2' ]
+-	Eno	-	kdn	species2
+
+[ '-', 'Eno', '-', 'Uch', 'species2' ]
+-	Eno	-	Uch	species2
+
+[ '-', 'Eno', '-', 'ATPsynCF6', 'species2' ]
+-	Eno	-	ATPsynCF6	species2
+
+[ '-', 'Eno', '-', 'Gdi', 'species2' ]
+-	Eno	-	Gdi	species2
+
+[ '-', 'Eno', '-', 'smt3', 'species2' ]
+-	Eno	-	smt3	species2
+
+[ '-', 'Eno', '-', 'dUTPase', 'species2' ]
+-	Eno	-	dUTPase	species2
+
+[ '-', 'Eno', '-', 'CG4598', 'species2' ]
+-	Eno	-	CG4598	species2
+
+[ '-', 'Eno', '-', 'yip2', 'species2' ]
+-	Eno	-	yip2	species2
+
+[ '-', 'Eno', '-', 'Tctp', 'species2' ]
+-	Eno	-	Tctp	species2
+
+[ '-', 'Eno', '-', 'Tm2', 'species2' ]
+-	Eno	-	Tm2	species2
+
+[ '-', 'Eno', '-', 'eEF1delta', 'species2' ]
+-	Eno	-	eEF1delta	species2
+
+[ '-', 'Eno', '-', 'EndoGI', 'species2' ]
+-	Eno	-	EndoGI	species2
+
+[ '-', 'Eno', '-', 'cib', 'species2' ]
+-	Eno	-	cib	species2
+
+[ '-', 'Eno', '-', 'Mlc1', 'species2' ]
+-	Eno	-	Mlc1	species2
+
+[ '-', 'Eno', '-', 'CG6084', 'species2' ]
+-	Eno	-	CG6084	species2
+
+[ '-', 'Eno', '-', 'Hsc70Cb', 'species2' ]
+-	Eno	-	Hsc70Cb	species2
+
+[ '-', 'Eno', '-', 'porin', 'species2' ]
+-	Eno	-	porin	species2
+
+[ '-', 'Eno', '-', 'GstO3', 'species2' ]
+-	Eno	-	GstO3	species2
+
+[ '-', 'Eno', '-', 'fabp', 'species2' ]
+-	Eno	-	fabp	species2
+
+[ '-', 'Eno', '-', 'Pdi', 'species2' ]
+-	Eno	-	Pdi	species2
+
+[ '-', 'Eno', '-', 'scu', 'species2' ]
+-	Eno	-	scu	species2
+
+[ '-', 'Eno', '-', 'RhoGDI', 'species2' ]
+-	Eno	-	RhoGDI	species2
+
+[ '-', 'Eno', '-', 'Nph', 'species2' ]
+-	Eno	-	Nph	species2
+
+[ '-', 'Eno', '-', 'Nlp', 'species2' ]
+-	Eno	-	Nlp	species2
+
+[ '-', 'Eno', '-', 'Mdh2', 'species2' ]
+-	Eno	-	Mdh2	species2
+
+[ '-', 'Eno', '-', 'CG8036', 'species2' ]
+-	Eno	-	CG8036	species2
+
+[ '-', 'Eno', '-', 'Sh3beta', 'species2' ]
+-	Eno	-	Sh3beta	species2
+
+[ '-', 'Eno', '-', 'Nacalpha', 'species2' ]
+-	Eno	-	Nacalpha	species2
+
+[ '-', 'Eno', '-', 'Gapdh2', 'species2' ]
+-	Eno	-	Gapdh2	species2
+
+[ '-', 'Eno', '-', 'Sod2', 'species2' ]
+-	Eno	-	Sod2	species2
+
+[ '-', 'Eno', '-', 'GstS1', 'species2' ]
+-	Eno	-	GstS1	species2
+
+[ '-', 'Eno', '-', 'CG8993', 'species2' ]
+-	Eno	-	CG8993	species2
+
+[ '-', 'Eno', '-', 'Gpdh', 'species2' ]
+-	Eno	-	Gpdh	species2
+
+[ '-', 'Eno', '-', 'scf', 'species2' ]
+-	Eno	-	scf	species2
+
+[ '-', 'Eno', '-', 'PCNA', 'species2' ]
+-	Eno	-	PCNA	species2
+
+[ '-', 'Eno', '-', 'Acon', 'species2' ]
+-	Eno	-	Acon	species2
+
+[ '-', 'Eno', '-', 'Calr', 'species2' ]
+-	Eno	-	Calr	species2
+
+[ '-', 'Eno', '-', 'Fkbp14', 'species2' ]
+-	Eno	-	Fkbp14	species2
+
+[ '-', 'Eno', '-', 'Bacc', 'species2' ]
+-	Eno	-	Bacc	species2
+
+[ '-', 'Eno', '-', 'Cyp1', 'species2' ]
+-	Eno	-	Cyp1	species2
+
+[ [ 'Eno', 'Eno', 'RpS27A', 'RpS27A', 'species1' ],
+  [ 'Eno', 'Eno', 'atl', 'atl', 'species1' ],
+  [ '-', 'Eno', '-', 'CG10638', 'species2' ],
+  [ '-', 'Eno', '-', 'Moe', 'species2' ],
+  [ '-', 'Eno', '-', 'FK506-bp2', 'species2' ],
+  [ '-', 'Eno', '-', 'Inos', 'species2' ],
+  [ '-', 'Eno', '-', 'ATPsynbeta', 'species2' ],
+  [ '-', 'Eno', '-', 'CG11267', 'species2' ],
+  [ '-', 'Eno', '-', 'Prx2540-2', 'species2' ],
+  [ '-', 'Eno', '-', 'Sod', 'species2' ],
+  [ '-', 'Eno', '-', 'PHGPx', 'species2' ],
+  [ '-', 'Eno', '-', 'Prosbeta5', 'species2' ],
+  [ '-', 'Eno', '-', 'Akap200', 'species2' ],
+  [ '-', 'Eno', '-', 'Mer', 'species2' ],
+  [ '-', 'Eno', '-', 'CG14715', 'species2' ],
+  [ '-', 'Eno', '-', 'Chd64', 'species2' ],
+  [ '-', 'Eno', '-', 'Scp1', 'species2' ],
+  [ '-', 'Eno', '-', 'Pglym78', 'species2' ],
+  [ '-', 'Eno', '-', 'Ntf-2', 'species2' ],
+  [ '-', 'Eno', '-', 'GstE6', 'species2' ],
+  [ '-', 'awd', '-', 'Eno', 'species2' ],
+  [ '-', 'EF2', '-', 'Eno', 'species2' ],
+  [ '-', 'Argk', '-', 'Eno', 'species2' ],
+  [ '-', 'Adh', '-', 'Eno', 'species2' ],
+  [ '-', 'Ald', '-', 'Eno', 'species2' ],
+  [ '-', 'chic', '-', 'Eno', 'species2' ],
+  [ '-', 'AnxB10', '-', 'Eno', 'species2' ],
+  [ '-', 'Eno', '-', 'regucalcin', 'species2' ],
+  [ '-', 'Eno', '-', 'Prosalpha1', 'species2' ],
+  [ '-', 'Eno', '-', 'Trxr-1', 'species2' ],
+  [ '-', 'Eno', '-', 'Mlc2', 'species2' ],
+  [ '-', 'Eno', '-', 'Df31', 'species2' ],
+  [ '-', 'Eno', '-', 'Hop', 'species2' ],
+  [ '-', 'Eno', '-', 'CG2852', 'species2' ],
+  [ '-', 'Eno', '-', 'CG2862', 'species2' ],
+  [ '-', 'Eno', '-', '14-3-3epsilon', 'species2' ],
+  [ '-', 'Eno', '-', 'Pgk', 'species2' ],
+  [ '-', 'Eno', '-', 'eIF-5A', 'species2' ],
+  [ '-', 'Eno', '-', 'Trx-2', 'species2' ],
+  [ '-', 'Eno', '-', 'capt', 'species2' ],
+  [ '-', 'Eno', '-', 'Pgd', 'species2' ],
+  [ '-', 'Eno', '-', 'kdn', 'species2' ],
+  [ '-', 'Eno', '-', 'Uch', 'species2' ],
+  [ '-', 'Eno', '-', 'ATPsynCF6', 'species2' ],
+  [ '-', 'Eno', '-', 'Gdi', 'species2' ],
+  [ '-', 'Eno', '-', 'smt3', 'species2' ],
+  [ '-', 'Eno', '-', 'dUTPase', 'species2' ],
+  [ '-', 'Eno', '-', 'CG4598', 'species2' ],
+  [ '-', 'Eno', '-', 'yip2', 'species2' ],
+  [ '-', 'Eno', '-', 'Tctp', 'species2' ],
+  [ '-', 'Eno', '-', 'Tm2', 'species2' ],
+  [ '-', 'Eno', '-', 'eEF1delta', 'species2' ],
+  [ '-', 'Eno', '-', 'EndoGI', 'species2' ],
+  [ '-', 'Eno', '-', 'cib', 'species2' ],
+  [ '-', 'Eno', '-', 'Mlc1', 'species2' ],
+  [ '-', 'Eno', '-', 'CG6084', 'species2' ],
+  [ '-', 'Eno', '-', 'Hsc70Cb', 'species2' ],
+  [ '-', 'Eno', '-', 'porin', 'species2' ],
+  [ '-', 'Eno', '-', 'GstO3', 'species2' ],
+  [ '-', 'Eno', '-', 'fabp', 'species2' ],
+  [ '-', 'Eno', '-', 'Pdi', 'species2' ],
+  [ '-', 'Eno', '-', 'scu', 'species2' ],
+  [ '-', 'Eno', '-', 'RhoGDI', 'species2' ],
+  [ '-', 'Eno', '-', 'Nph', 'species2' ],
+  [ '-', 'Eno', '-', 'Nlp', 'species2' ],
+  [ '-', 'Eno', '-', 'Mdh2', 'species2' ],
+  [ '-', 'Eno', '-', 'CG8036', 'species2' ],
+  [ '-', 'Eno', '-', 'Sh3beta', 'species2' ],
+  [ '-', 'Eno', '-', 'Nacalpha', 'species2' ],
+  [ '-', 'Eno', '-', 'Gapdh2', 'species2' ],
+  [ '-', 'Eno', '-', 'Sod2', 'species2' ],
+  [ '-', 'Eno', '-', 'GstS1', 'species2' ],
+  [ '-', 'Eno', '-', 'CG8993', 'species2' ],
+  [ '-', 'Eno', '-', 'Gpdh', 'species2' ],
+  [ '-', 'Eno', '-', 'scf', 'species2' ],
+  [ '-', 'Eno', '-', 'PCNA', 'species2' ],
+  [ '-', 'Eno', '-', 'Acon', 'species2' ],
+  [ '-', 'Eno', '-', 'Calr', 'species2' ],
+  [ '-', 'Eno', '-', 'Fkbp14', 'species2' ],
+  [ '-', 'Eno', '-', 'Bacc', 'species2' ],
+  [ '-', 'Eno', '-', 'Cyp1', 'species2' ] ]

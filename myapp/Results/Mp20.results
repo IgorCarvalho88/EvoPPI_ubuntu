@@ -1,0 +1,372 @@
+Drosophila_melanogaster_DroID.txt
+Drosophila_melanogaster_DroID_Flybase.txt
+0.05
+100
+4
+40
+file has been written
+[ [ 'Dmel_CG4696', 'Dmel_CG18657' ] ]
+[ 'Mp20', 'Mp20', 'NetA', 'NetA', 'species1' ]
+Mp20	Mp20	NetA	NetA	species1
+
+[ 'Mp20', 'Mp20', 'NetA', 'NetB', 'species1' ]
+Mp20	Mp20	NetA	NetB	species1
+
+[ 'Mp20', 'CG5023', 'NetA', 'NetA', 'species1' ]
+Mp20	CG5023	NetA	NetA	species1
+
+[ 'Mp20', 'CG5023', 'NetA', 'NetB', 'species1' ]
+Mp20	CG5023	NetA	NetB	species1
+
+[ 'Mp20', 'Chd64', 'NetA', 'NetA', 'species1' ]
+Mp20	Chd64	NetA	NetA	species1
+
+[ 'Mp20', 'Chd64', 'NetA', 'NetB', 'species1' ]
+Mp20	Chd64	NetA	NetB	species1
+
+[ '-', 'Gapdh2', '-', 'Mp20', 'species2' ]
+-	Gapdh2	-	Mp20	species2
+
+[ '-', 'Chd64', '-', 'CG10638', 'species2' ]
+-	Chd64	-	CG10638	species2
+
+[ '-', 'Chd64', '-', 'CG11267', 'species2' ]
+-	Chd64	-	CG11267	species2
+
+[ '-', 'Chd64', '-', 'CG11811', 'species2' ]
+-	Chd64	-	CG11811	species2
+
+[ '-', 'Chd64', '-', 'CG12207', 'species2' ]
+-	Chd64	-	CG12207	species2
+
+[ '-', 'Chd64', '-', 'CG14715', 'species2' ]
+-	Chd64	-	CG14715	species2
+
+[ '-', 'CG10265', '-', 'Chd64', 'species2' ]
+-	CG10265	-	Chd64	species2
+
+[ '-', 'Moe', '-', 'Chd64', 'species2' ]
+-	Moe	-	Chd64	species2
+
+[ '-', 'eIF-4B', '-', 'Chd64', 'species2' ]
+-	eIF-4B	-	Chd64	species2
+
+[ '-', 'FK506-bp2', '-', 'Chd64', 'species2' ]
+-	FK506-bp2	-	Chd64	species2
+
+[ '-', 'Inos', '-', 'Chd64', 'species2' ]
+-	Inos	-	Chd64	species2
+
+[ '-', 'ATPsynbeta', '-', 'Chd64', 'species2' ]
+-	ATPsynbeta	-	Chd64	species2
+
+[ '-', 'Tango2', '-', 'Chd64', 'species2' ]
+-	Tango2	-	Chd64	species2
+
+[ '-', 'Prx2540-2', '-', 'Chd64', 'species2' ]
+-	Prx2540-2	-	Chd64	species2
+
+[ '-', 'Sod', '-', 'Chd64', 'species2' ]
+-	Sod	-	Chd64	species2
+
+[ '-', 'Ef1gamma', '-', 'Chd64', 'species2' ]
+-	Ef1gamma	-	Chd64	species2
+
+[ '-', 'PHGPx', '-', 'Chd64', 'species2' ]
+-	PHGPx	-	Chd64	species2
+
+[ '-', 'Hsp83', '-', 'Chd64', 'species2' ]
+-	Hsp83	-	Chd64	species2
+
+[ '-', 'Akap200', '-', 'Chd64', 'species2' ]
+-	Akap200	-	Chd64	species2
+
+[ '-', 'CG1354', '-', 'Chd64', 'species2' ]
+-	CG1354	-	Chd64	species2
+
+[ '-', 'CG13887', '-', 'Chd64', 'species2' ]
+-	CG13887	-	Chd64	species2
+
+[ '-', 'CG14968', '-', 'Chd64', 'species2' ]
+-	CG14968	-	Chd64	species2
+
+[ '-', 'CG15141', '-', 'Chd64', 'species2' ]
+-	CG15141	-	Chd64	species2
+
+[ '-', 'dod', '-', 'Chd64', 'species2' ]
+-	dod	-	Chd64	species2
+
+[ '-', 'Pglym78', '-', 'Chd64', 'species2' ]
+-	Pglym78	-	Chd64	species2
+
+[ '-', 'CG17568', '-', 'Chd64', 'species2' ]
+-	CG17568	-	Chd64	species2
+
+[ '-', 'Eno', '-', 'Chd64', 'species2' ]
+-	Eno	-	Chd64	species2
+
+[ '-', 'HmgD', '-', 'Chd64', 'species2' ]
+-	HmgD	-	Chd64	species2
+
+[ '-', 'regucalcin', '-', 'Chd64', 'species2' ]
+-	regucalcin	-	Chd64	species2
+
+[ '-', 'CG1910', '-', 'Chd64', 'species2' ]
+-	CG1910	-	Chd64	species2
+
+[ '-', 'Trxr-1', '-', 'Chd64', 'species2' ]
+-	Trxr-1	-	Chd64	species2
+
+[ '-', 'Df31', '-', 'Chd64', 'species2' ]
+-	Df31	-	Chd64	species2
+
+[ '-', 'awd', '-', 'Chd64', 'species2' ]
+-	awd	-	Chd64	species2
+
+[ '-', 'EF2', '-', 'Chd64', 'species2' ]
+-	EF2	-	Chd64	species2
+
+[ '-', 'Hop', '-', 'Chd64', 'species2' ]
+-	Hop	-	Chd64	species2
+
+[ '-', 'CG2852', '-', 'Chd64', 'species2' ]
+-	CG2852	-	Chd64	species2
+
+[ '-', 'CG2862', '-', 'Chd64', 'species2' ]
+-	CG2862	-	Chd64	species2
+
+[ '-', 'Dim1', '-', 'Chd64', 'species2' ]
+-	Dim1	-	Chd64	species2
+
+[ '-', '14-3-3epsilon', '-', 'Chd64', 'species2' ]
+-	14-3-3epsilon	-	Chd64	species2
+
+[ '-', 'eIF-5A', '-', 'Chd64', 'species2' ]
+-	eIF-5A	-	Chd64	species2
+
+[ '-', 'Eb1', '-', 'Chd64', 'species2' ]
+-	Eb1	-	Chd64	species2
+
+[ '-', 'CG3542', '-', 'Chd64', 'species2' ]
+-	CG3542	-	Chd64	species2
+
+[ '-', 'Pgd', '-', 'Chd64', 'species2' ]
+-	Pgd	-	Chd64	species2
+
+[ '-', 'Uch', '-', 'Chd64', 'species2' ]
+-	Uch	-	Chd64	species2
+
+[ '-', 'CG4598', '-', 'Chd64', 'species2' ]
+-	CG4598	-	Chd64	species2
+
+[ '-', 'fax', '-', 'Chd64', 'species2' ]
+-	fax	-	Chd64	species2
+
+[ '-', 'eEF1delta', '-', 'Chd64', 'species2' ]
+-	eEF1delta	-	Chd64	species2
+
+[ '-', 'cib', '-', 'Chd64', 'species2' ]
+-	cib	-	Chd64	species2
+
+[ '-', 'Ald', '-', 'Chd64', 'species2' ]
+-	Ald	-	Chd64	species2
+
+[ '-', 'cnk', '-', 'Chd64', 'species2' ]
+-	cnk	-	Chd64	species2
+
+[ '-', 'Hsc70Cb', '-', 'Chd64', 'species2' ]
+-	Hsc70Cb	-	Chd64	species2
+
+[ '-', 'porin', '-', 'Chd64', 'species2' ]
+-	porin	-	Chd64	species2
+
+[ '-', 'loqs', '-', 'Chd64', 'species2' ]
+-	loqs	-	Chd64	species2
+
+[ '-', 'Pdi', '-', 'Chd64', 'species2' ]
+-	Pdi	-	Chd64	species2
+
+[ '-', 'scu', '-', 'Chd64', 'species2' ]
+-	scu	-	Chd64	species2
+
+[ '-', 'Usp39', '-', 'Chd64', 'species2' ]
+-	Usp39	-	Chd64	species2
+
+[ '-', 'Nlp', '-', 'Chd64', 'species2' ]
+-	Nlp	-	Chd64	species2
+
+[ '-', 'Picot', '-', 'Chd64', 'species2' ]
+-	Picot	-	Chd64	species2
+
+[ '-', 'Fim', '-', 'Chd64', 'species2' ]
+-	Fim	-	Chd64	species2
+
+[ '-', 'ERp60', '-', 'Chd64', 'species2' ]
+-	ERp60	-	Chd64	species2
+
+[ '-', 'scf', '-', 'Chd64', 'species2' ]
+-	scf	-	Chd64	species2
+
+[ '-', 'PCNA', '-', 'Chd64', 'species2' ]
+-	PCNA	-	Chd64	species2
+
+[ '-', 'Calr', '-', 'Chd64', 'species2' ]
+-	Calr	-	Chd64	species2
+
+[ '-', 'chic', '-', 'Chd64', 'species2' ]
+-	chic	-	Chd64	species2
+
+[ '-', 'AnxB10', '-', 'Chd64', 'species2' ]
+-	AnxB10	-	Chd64	species2
+
+[ '-', 'Fkbp14', '-', 'Chd64', 'species2' ]
+-	Fkbp14	-	Chd64	species2
+
+[ '-', 'Rae1', '-', 'Chd64', 'species2' ]
+-	Rae1	-	Chd64	species2
+
+[ '-', 'Bacc', '-', 'Chd64', 'species2' ]
+-	Bacc	-	Chd64	species2
+
+[ '-', 'Cyp1', '-', 'Chd64', 'species2' ]
+-	Cyp1	-	Chd64	species2
+
+[ '-', 'Chd64', '-', 'CG16817', 'species2' ]
+-	Chd64	-	CG16817	species2
+
+[ '-', 'Chd64', '-', 'GstE6', 'species2' ]
+-	Chd64	-	GstE6	species2
+
+[ '-', 'Chd64', '-', 'TER94', 'species2' ]
+-	Chd64	-	TER94	species2
+
+[ '-', 'Chd64', '-', 'Trx-2', 'species2' ]
+-	Chd64	-	Trx-2	species2
+
+[ '-', 'Chd64', '-', 'capt', 'species2' ]
+-	Chd64	-	capt	species2
+
+[ '-', 'Chd64', '-', 'smt3', 'species2' ]
+-	Chd64	-	smt3	species2
+
+[ '-', 'Chd64', '-', 'Tctp', 'species2' ]
+-	Chd64	-	Tctp	species2
+
+[ '-', 'Chd64', '-', 'CG6084', 'species2' ]
+-	Chd64	-	CG6084	species2
+
+[ '-', 'Chd64', '-', 'Snx3', 'species2' ]
+-	Chd64	-	Snx3	species2
+
+[ '-', 'Chd64', '-', 'GstO3', 'species2' ]
+-	Chd64	-	GstO3	species2
+
+[ '-', 'Chd64', '-', 'fabp', 'species2' ]
+-	Chd64	-	fabp	species2
+
+[ '-', 'Chd64', '-', 'RhoGDI', 'species2' ]
+-	Chd64	-	RhoGDI	species2
+
+[ '-', 'Chd64', '-', 'Mdh2', 'species2' ]
+-	Chd64	-	Mdh2	species2
+
+[ '-', 'Chd64', '-', 'CG8036', 'species2' ]
+-	Chd64	-	CG8036	species2
+
+[ '-', 'Chd64', '-', 'Sh3beta', 'species2' ]
+-	Chd64	-	Sh3beta	species2
+
+[ '-', 'Chd64', '-', 'Nacalpha', 'species2' ]
+-	Chd64	-	Nacalpha	species2
+
+[ [ 'Mp20', 'Mp20', 'NetA', 'NetA', 'species1' ],
+  [ 'Mp20', 'Mp20', 'NetA', 'NetB', 'species1' ],
+  [ 'Mp20', 'CG5023', 'NetA', 'NetA', 'species1' ],
+  [ 'Mp20', 'CG5023', 'NetA', 'NetB', 'species1' ],
+  [ 'Mp20', 'Chd64', 'NetA', 'NetA', 'species1' ],
+  [ 'Mp20', 'Chd64', 'NetA', 'NetB', 'species1' ],
+  [ '-', 'Gapdh2', '-', 'Mp20', 'species2' ],
+  [ '-', 'Chd64', '-', 'CG10638', 'species2' ],
+  [ '-', 'Chd64', '-', 'CG11267', 'species2' ],
+  [ '-', 'Chd64', '-', 'CG11811', 'species2' ],
+  [ '-', 'Chd64', '-', 'CG12207', 'species2' ],
+  [ '-', 'Chd64', '-', 'CG14715', 'species2' ],
+  [ '-', 'CG10265', '-', 'Chd64', 'species2' ],
+  [ '-', 'Moe', '-', 'Chd64', 'species2' ],
+  [ '-', 'eIF-4B', '-', 'Chd64', 'species2' ],
+  [ '-', 'FK506-bp2', '-', 'Chd64', 'species2' ],
+  [ '-', 'Inos', '-', 'Chd64', 'species2' ],
+  [ '-', 'ATPsynbeta', '-', 'Chd64', 'species2' ],
+  [ '-', 'Tango2', '-', 'Chd64', 'species2' ],
+  [ '-', 'Prx2540-2', '-', 'Chd64', 'species2' ],
+  [ '-', 'Sod', '-', 'Chd64', 'species2' ],
+  [ '-', 'Ef1gamma', '-', 'Chd64', 'species2' ],
+  [ '-', 'PHGPx', '-', 'Chd64', 'species2' ],
+  [ '-', 'Hsp83', '-', 'Chd64', 'species2' ],
+  [ '-', 'Akap200', '-', 'Chd64', 'species2' ],
+  [ '-', 'CG1354', '-', 'Chd64', 'species2' ],
+  [ '-', 'CG13887', '-', 'Chd64', 'species2' ],
+  [ '-', 'CG14968', '-', 'Chd64', 'species2' ],
+  [ '-', 'CG15141', '-', 'Chd64', 'species2' ],
+  [ '-', 'dod', '-', 'Chd64', 'species2' ],
+  [ '-', 'Pglym78', '-', 'Chd64', 'species2' ],
+  [ '-', 'CG17568', '-', 'Chd64', 'species2' ],
+  [ '-', 'Eno', '-', 'Chd64', 'species2' ],
+  [ '-', 'HmgD', '-', 'Chd64', 'species2' ],
+  [ '-', 'regucalcin', '-', 'Chd64', 'species2' ],
+  [ '-', 'CG1910', '-', 'Chd64', 'species2' ],
+  [ '-', 'Trxr-1', '-', 'Chd64', 'species2' ],
+  [ '-', 'Df31', '-', 'Chd64', 'species2' ],
+  [ '-', 'awd', '-', 'Chd64', 'species2' ],
+  [ '-', 'EF2', '-', 'Chd64', 'species2' ],
+  [ '-', 'Hop', '-', 'Chd64', 'species2' ],
+  [ '-', 'CG2852', '-', 'Chd64', 'species2' ],
+  [ '-', 'CG2862', '-', 'Chd64', 'species2' ],
+  [ '-', 'Dim1', '-', 'Chd64', 'species2' ],
+  [ '-', '14-3-3epsilon', '-', 'Chd64', 'species2' ],
+  [ '-', 'eIF-5A', '-', 'Chd64', 'species2' ],
+  [ '-', 'Eb1', '-', 'Chd64', 'species2' ],
+  [ '-', 'CG3542', '-', 'Chd64', 'species2' ],
+  [ '-', 'Pgd', '-', 'Chd64', 'species2' ],
+  [ '-', 'Uch', '-', 'Chd64', 'species2' ],
+  [ '-', 'CG4598', '-', 'Chd64', 'species2' ],
+  [ '-', 'fax', '-', 'Chd64', 'species2' ],
+  [ '-', 'eEF1delta', '-', 'Chd64', 'species2' ],
+  [ '-', 'cib', '-', 'Chd64', 'species2' ],
+  [ '-', 'Ald', '-', 'Chd64', 'species2' ],
+  [ '-', 'cnk', '-', 'Chd64', 'species2' ],
+  [ '-', 'Hsc70Cb', '-', 'Chd64', 'species2' ],
+  [ '-', 'porin', '-', 'Chd64', 'species2' ],
+  [ '-', 'loqs', '-', 'Chd64', 'species2' ],
+  [ '-', 'Pdi', '-', 'Chd64', 'species2' ],
+  [ '-', 'scu', '-', 'Chd64', 'species2' ],
+  [ '-', 'Usp39', '-', 'Chd64', 'species2' ],
+  [ '-', 'Nlp', '-', 'Chd64', 'species2' ],
+  [ '-', 'Picot', '-', 'Chd64', 'species2' ],
+  [ '-', 'Fim', '-', 'Chd64', 'species2' ],
+  [ '-', 'ERp60', '-', 'Chd64', 'species2' ],
+  [ '-', 'scf', '-', 'Chd64', 'species2' ],
+  [ '-', 'PCNA', '-', 'Chd64', 'species2' ],
+  [ '-', 'Calr', '-', 'Chd64', 'species2' ],
+  [ '-', 'chic', '-', 'Chd64', 'species2' ],
+  [ '-', 'AnxB10', '-', 'Chd64', 'species2' ],
+  [ '-', 'Fkbp14', '-', 'Chd64', 'species2' ],
+  [ '-', 'Rae1', '-', 'Chd64', 'species2' ],
+  [ '-', 'Bacc', '-', 'Chd64', 'species2' ],
+  [ '-', 'Cyp1', '-', 'Chd64', 'species2' ],
+  [ '-', 'Chd64', '-', 'CG16817', 'species2' ],
+  [ '-', 'Chd64', '-', 'GstE6', 'species2' ],
+  [ '-', 'Chd64', '-', 'TER94', 'species2' ],
+  [ '-', 'Chd64', '-', 'Trx-2', 'species2' ],
+  [ '-', 'Chd64', '-', 'capt', 'species2' ],
+  [ '-', 'Chd64', '-', 'smt3', 'species2' ],
+  [ '-', 'Chd64', '-', 'Tctp', 'species2' ],
+  [ '-', 'Chd64', '-', 'CG6084', 'species2' ],
+  [ '-', 'Chd64', '-', 'Snx3', 'species2' ],
+  [ '-', 'Chd64', '-', 'GstO3', 'species2' ],
+  [ '-', 'Chd64', '-', 'fabp', 'species2' ],
+  [ '-', 'Chd64', '-', 'RhoGDI', 'species2' ],
+  [ '-', 'Chd64', '-', 'Mdh2', 'species2' ],
+  [ '-', 'Chd64', '-', 'CG8036', 'species2' ],
+  [ '-', 'Chd64', '-', 'Sh3beta', 'species2' ],
+  [ '-', 'Chd64', '-', 'Nacalpha', 'species2' ] ]

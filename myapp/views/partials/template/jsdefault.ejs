@@ -174,12 +174,15 @@
 
         $('#sameSpecies').on('submit', function(event){
             event.preventDefault();
-            $.ajax('/interactome', {
+            var x = document.getElementById("sameSpeciesMySelect").value;
+            var url = "/compare/" + x;
+            $.ajax(url, {
                 type: 'GET',
                 data: $('#sameSpecies').serialize(),
             
             }).done(function(data){
                 var table = document.getElementById("sameSpeciesTbody");
+                $('#header').text(data[0][0]);
                 $("#sameSpeciesTbody tr").remove();
                 for (var i = 0; i < data.length; i++) { // from 1 to 10
                     var row = document.createElement("tr");

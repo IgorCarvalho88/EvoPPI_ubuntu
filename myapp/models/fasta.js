@@ -50,7 +50,7 @@ exports.createFasta = function(){
 
 }
 
-function createFastaAux(wstream){
+/*function createFastaAux(wstream){
 	var lineReader = readline.createInterface({
  		input: fs.createReadStream(tempFile2)
 	});
@@ -68,7 +68,7 @@ function createFastaAux(wstream){
 			// bloco dentro do CDS
 		if(flag)
 		{
-			if(line.startsWith("/gene"))
+			if(line.startsWith("/gene="))
 			{
 				line = line.substr(6, line.length -6);
 				line = line.replace(/"/g, '');
@@ -130,6 +130,98 @@ function createFastaAux(wstream){
 					
 
 			}
+			
+		}
+		
+	});
+
+lineReader.on('close', () => {
+		wstream.end();
+	});
+  		 
+	
+	
+
+}*/
+
+
+function createFastaAux(wstream){
+	var lineReader = readline.createInterface({
+ 		input: fs.createReadStream(tempFile2)
+	});
+
+	var gene;
+	var encontrou = false;
+	var flag = false;
+	var translation = false;
+	lineReader.on('line', function (line) {
+		line = line.trim();
+		if(line.startsWith("CDS"))
+		{
+			var translation_structure = [];
+			flag = true;
+		}
+			// bloco dentro do CDS
+		if(flag)
+		{
+			if(line.startsWith('/db_xref="GeneID:'))
+			{
+				line = line.substr(17, line.length -17);
+				line = line.replace(/"/g, '');
+				wstream.write(">");
+				wstream.write(line);
+				wstream.write("\n");
+
+
+
+			}
+
+			if(translation)
+			{
+				if(line.endsWith('"'))
+				{
+					line = line.replace(/"/g, '');
+					wstream.write(line);
+					wstream.write("\n");
+					
+					flag = false;
+					encontrou = false;
+					translation = false;
+				}
+				else
+				{
+					wstream.write(line);
+					wstream.write("\n");
+					
+				}
+
+			}
+
+
+			if(line.startsWith("/translation"))
+			{
+				
+				var aux = line.substr(13, line.length -13);
+				aux = aux.replace(/"/g, '');
+				wstream.write(aux);
+				wstream.write("\n");
+				translation = true;
+
+
+				if(line.endsWith('"'))
+				{
+					flag = false;
+					encontrou = false;
+					translation = false;
+				}
+					
+
+			}
+
+
+			
+
+			
 			
 		}
 		

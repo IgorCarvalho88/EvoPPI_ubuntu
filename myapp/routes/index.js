@@ -166,7 +166,7 @@ router.get('/interactome/:fileName', function(req, res, next){
 
 /*Route called by ajax function for same species page only*/
 /*jsdefault --> jquery function  --> #sameSpecies*/
-router.get('/interactome/', function(req, res, next){
+router.get('/compare/:fileName', function(req, res, next){
 	var firstInteractome;
 	var secondInteractome;
 
@@ -176,23 +176,22 @@ router.get('/interactome/', function(req, res, next){
 	var finalResult;
 
 	var gene = req.query.gene;
-	//var speciesName = req.params.fileName.replace(" ", "_");
+	var speciesName = req.params.fileName.replace(" ", "_");
 
 	/*new functionalities*/
-	/*var locus_tag;
-	locus_tag = dictionary.searchForGene(speciesName, gene);*/
+	var locus_tag;
+	locus_tag = dictionary.searchForGene(speciesName, gene);
 	
 	firstInteractome = interactome.readFile(req.query.interactome1);
 	secondInteractome = interactome.readFile(req.query.interactome2);
 
-	interactions1 = interactome.getGeneInteractions(gene, firstInteractome.fileName);
-	interactions2 = interactome.getGeneInteractions(gene, secondInteractome.fileName);
+	interactions1 = interactome.getGeneInteractions(locus_tag, firstInteractome.fileName);
+	interactions2 = interactome.getGeneInteractions(locus_tag, secondInteractome.fileName);
 
 	
 	finalResult = interactome.compare(interactions1, interactions2);
-	console.log(finalResult);
-	//var finalArray = dictionary.convertToGene(speciesName, speciesName2, arrayMatrix);
-	res.send(finalResult);
+	var finalArray = dictionary.convertToGeneSameSpecies(speciesName, finalResult);
+	res.send(finalArray);
 
 
 	/*res.render('teste',{

@@ -1,0 +1,7 @@
+read -p "File name? " name
+while read file
+do
+sed "s/#/$file/g" ./config/template.txt > ./config/config.txt
+echo $file
+node teste.js > ./Results/$file.results
+done < $name

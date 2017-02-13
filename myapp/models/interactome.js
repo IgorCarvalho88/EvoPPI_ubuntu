@@ -100,7 +100,7 @@ exports.compare = function(interactome1, interactome2){
 			{
 				found = true;
 				arrayCompare.push(interactome1[i]);
-				arrayCompare[arrayCompare.length-1].push("2");
+				arrayCompare[arrayCompare.length-1].push("interactome1 and interactome2");
 				break;
 			}
 			
@@ -108,7 +108,7 @@ exports.compare = function(interactome1, interactome2){
 		if(found == false)
 		{
 			arrayCompare.push(interactome1[i]);
-			arrayCompare[arrayCompare.length-1].push("0");
+			arrayCompare[arrayCompare.length-1].push("interactome1");
 
 		}
 		found = false;
@@ -204,7 +204,7 @@ function addMissingGenes(interactome2, arrayCompare)
 		if(found == false)
 		{
 			arrayCompare.push(interactome2[i]);
-			arrayCompare[arrayCompare.length-1].push("1");
+			arrayCompare[arrayCompare.length-1].push("interactome2");
 
 		}
 		found = false;
