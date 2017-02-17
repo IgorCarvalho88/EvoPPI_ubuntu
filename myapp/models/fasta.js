@@ -13,8 +13,13 @@ var query = path.join(__dirname, '..', 'database/fasta/query.txt');
 var tempFile2 = path.join(__dirname, '..', 'database/tempFiles/temp2.gbff');
 // for download
 var tempFile = path.join(__dirname, '..', 'database/tempFiles/temp.xls');
+// sameSpeciesforDownload
 var tempFastaDownload = path.join(__dirname, '..', 'database/tempFiles/Samespecies_fasta');
 var tempFastaDownloadWithGeneNames = path.join(__dirname, '..', 'database/tempFiles/Samespecies2_fasta');
+
+// differentSpeciesforDownload
+var differentSpeciesTempFastaDownload = path.join(__dirname, '..', 'database/tempFiles/Differentspecies_fasta');
+var differentSpeciesTempFastaDownloadGeneNames = path.join(__dirname, '..', 'database/tempFiles/Differentspecies2_fasta');
 
 
 exports.createFasta = function(){
@@ -592,6 +597,9 @@ exports.createFastaDownload = function(genes, filePath, callback){
 	
 };
 
+
+
+
 exports.createFastaDownloadWithGeneNames = function(speciesName, callback){
 	console.log("Entrei na cuncao");
 	var addExtension = speciesName + ".txt";
@@ -624,9 +632,6 @@ exports.createFastaDownloadWithGeneNames = function(speciesName, callback){
 			}
 		}
 		
-		
-		//Pesquisar no dicionario line.substr(1, line.length -1) que é o nome do gene
-		//escrever no novo ficheiro > e o nome do gene encontrado no dicionario e a sequencia respectiva ate encontrar o proximo >
 	}
 	if(flag)
 		{
@@ -647,6 +652,155 @@ exports.createFastaDownloadWithGeneNames = function(speciesName, callback){
 
 }
 
+exports.createFastaDownloadDifferentSpecies = function(genes, filePath, callback){
+	console.log("entrei na funcao");
+	var lineReader = readline.createInterface({
+		input: fs.createReadStream(filePath)
+	});
+
+	var wstream = fs.createWriteStream(differentSpeciesTempFastaDownload);
+/*This will create query.txt file with gene and gene´s interactions from species1*/
+	var flag =  false;
+	lineReader.on('line', function (line) {
+		if(line.startsWith('>'))
+		{
+			flag = false;
+			for (var i = 0; i < genes.length; i++) {
+				if(genes[i] == line.substr(1, line.length -1)){
+					flag = true;
+				}
+			}
+		}
+		if(flag)
+		{
+			wstream.write(line);
+			wstream.write('\n');
+		}
+	});
+
+
+	lineReader.on('close', () => {
+  		 wstream.end();
+		});
+
+	wstream.on('finish', function () {
+	  console.log('file has been written');
+	  callback();
+	});
+
+	
+};
+
+
+
+exports.createFastaDownloadDifferentSpeciesWithGeneNames = function(speciesName, callback){
+	console.log("Entrei na cuncao");
+	var addExtension = speciesName + ".txt";
+	var filePath = path.join(__dirname, '..', 'database/dictionary', addExtension);
+	var parseFile1 = fs.readFileSync(filePath, 'utf8');
+	//console.log(dictionary_aux);
+	
+
+	var parsedFile = parseFile(parseFile1, "teste");
+	var dictionary = parsedFile.fileName;
+	console.log(dictionary);
+
+	var lineReader = readline.createInterface({
+		input: fs.createReadStream(differentSpeciesTempFastaDownload)
+	});
+
+	var wstream = fs.createWriteStream(differentSpeciesTempFastaDownloadGeneNames);
+
+	var flag =  false;
+	lineReader.on('line', function (line) {
+	if(line.startsWith('>'))
+	{
+		flag = false;
+		for (var i = 0; i < dictionary.length; i++) {
+			if((line.substr(1, line.length -1)) == dictionary[i][0])
+			{
+				wstream.write('>');
+				wstream.write(dictionary[i][1]);
+				wstream.write('\n');
+			}
+		}
+		
+	}
+	if(flag)
+		{
+			wstream.write(line);
+			wstream.write('\n');
+		}
+		flag = true;
+});
+
+	lineReader.on('close', () => {
+  		 wstream.end();
+		});
+
+	wstream.on('finish', function () {
+	  console.log('file has been written 2');
+	  callback();
+	});
+
+}
+
+
+
+
+
+exports.genesDifferenteSpeciesDownload = function(finalResult){
+
+	var bigArray = [];
+	//var genes = [];
+	
+	for (var i = 1; i < finalResult.length; i++) {
+
+		  bigArray.push(finalResult[i][1]);
+	}
+
+	for (var j = 1; j < finalResult.length; j++) {
+		
+		  bigArray.push(finalResult[j][3]);
+	}
+
+	bigArray = uniqBy(bigArray, JSON.stringify);
+
+	//console.log(bigArray);
+
+	return bigArray;
+
+}
+
+exports.convertoToGeneIDs = function(genes, speciesName){
+
+	var genesIDs = [];
+	var addExtension = speciesName + ".txt";
+	var filePath = path.join(__dirname, '..', 'database/dictionary', addExtension);
+	var parseFile1 = fs.readFileSync(filePath, 'utf8');
+	//console.log(dictionary_aux);
+	
+
+	var parsedFile = parseFile(parseFile1, "teste");
+	var dictionary = parsedFile.fileName;
+
+	//console.log(dictionary);
+	console.log(genes);
+
+	for (var i = 0; i < genes.length; i++) {
+
+		for (var j = 0; j < dictionary.length; j++) {
+			if(genes[i] == dictionary[j][1])
+			{
+				genesIDs.push(dictionary[j][0]);
+			}
+		}
+		
+	}
+
+	return genesIDs;
+
+}
 
 
 

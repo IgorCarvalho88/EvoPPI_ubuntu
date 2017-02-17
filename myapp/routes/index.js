@@ -17,6 +17,8 @@ var tempSameSpeciesDown = path.join(__dirname, '..', 'database/tempFiles/tempSam
 var tempFastaDownload = path.join(__dirname, '..', 'database/tempFiles/Samespecies_fasta');
 var tempFastaDownloadWithGeneNames = path.join(__dirname, '..', 'database/tempFiles/Samespecies2_fasta');
 
+var differentSpeciesTempFastaDownloadGeneNames = path.join(__dirname, '..', 'database/tempFiles/Differentspecies2_fasta');
+
 
 
 /* GET home page. */
@@ -313,6 +315,10 @@ router.get('/createSameSpeciesFasta/:fileName', function(req, res, next){
 	var genes = [];
 
 		for (var i = 0; i < geneInteractions.length; i++) {
+			if (i == 0)
+			{
+				genes.push(geneInteractions[i][0]);
+			}
 			
 			genes.push(geneInteractions[i][1]);
 			
@@ -339,6 +345,39 @@ router.get('/createSameSpeciesFasta/:fileName', function(req, res, next){
 router.get('/downloadSameSpeciesFasta/', function(req, res, next){
 
 	 res.download(tempFastaDownloadWithGeneNames);
+});
+
+router.post('/downloadDifferentSpeciesFasta/', function(req, res, next){
+
+
+	console.log("entrei different species download");
+	var finalResult = req.body;
+	var speciesName = finalResult[0][0].replace(" ", "_");
+	//console.log(finalResult);
+	//console.log(speciesName);
+	var genes = fasta.genesDifferenteSpeciesDownload(finalResult);
+	var genesID = fasta.convertoToGeneIDs(genes, speciesName);
+	//console.log(genesID);
+
+	filePath = fasta.createFilePath(speciesName);
+
+
+	var cb =  function(){
+		var callback = function(){
+			res.download(differentSpeciesTempFastaDownloadGeneNames);
+			}
+			fasta.createFastaDownloadDifferentSpeciesWithGeneNames(speciesName, callback);
+		}
+
+	fasta.createFastaDownloadDifferentSpecies(genesID, filePath, cb);
+	//fasta.forDownload(finalResult);
+	 //res.download(tempFile);
+	//console.log(finalResult);
+	
+});
+
+router.get('/downloadDifferentSpeciesFasta2/', function(req, res, next){
+	 res.download(differentSpeciesTempFastaDownloadGeneNames);
 });
 
 router.get('/level/:fileName/:fileName2', function(req, res, next){

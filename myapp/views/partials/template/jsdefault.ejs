@@ -462,6 +462,39 @@
             });
           });
 
+
+          $("#exportDifferentSpeciesFasta").click(function() {
+            
+            var finalData = [];
+            var speciesName = [];
+            var x = document.getElementById("mySelect2").value;
+            speciesName.push(x);
+            finalData.push(speciesName);
+           // console.log("entro");
+            $('table tbody tr').each(function() { // Finds all children <tr> elements
+                var data = [];
+                $(this).find("td").each(function(){ // Visits every single <td> element
+                    data.push($(this).text());       // Push out the text within the <td>
+                });
+                finalData.push(data);    
+             });
+
+             $.ajax({
+              type : "POST",
+              url : '/downloadDifferentSpeciesFasta',
+              data : JSON.stringify(finalData),
+              contentType: 'application/json',
+              //data : finalData,
+              success: function(data) {
+                    //console.log(data);
+                    window.location = '/downloadDifferentSpeciesFasta2';
+                  //window.location = '/path/to/download?arg=1';
+              },
+              error : function() {
+              }
+        });
+    });
+
             
 
 
