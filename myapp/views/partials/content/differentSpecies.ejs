@@ -163,6 +163,7 @@
    <!--  </div> -->
    <button id = "level" type="submit" class="btn btn-primary">Next Level</button>
     <button id = "export" type="submit" class="btn btn-primary" >Export</button>
+    <button id = "exportDifferentSpeciesFasta" type="submit" class="btn btn-primary" >Export Fasta</button>
     </div>
 
     <div class="modal fade" id="getModal">
@@ -281,11 +282,12 @@
                     <div  class="panel-heading">
                         <h3 id = "header" class="panel-title">Results</h3>
                     </div>
-                    <table id = "table2" class="table">
+                    <table id = "table2" class="table table-bordered">
                          <thead>
                         <tr>
+                            <th>Gene</th>
                             <th>Interacts</th>
-                            <th>Interactome</th>
+                            <th>Code</th>
                         </tr>
                         </thead>
                         <tbody id = "sameSpeciesTbody">
@@ -293,8 +295,9 @@
                     </table>
                 </div>
             </div>
-             <button id = "level" type="submit" class="btn btn-primary">Next Level</button>
-            <button id = "export" type="submit" class="btn btn-primary" >Export</button>
+             <button id = "levelSameSpecies" type="submit" class="btn btn-primary">Next Level</button>
+            <button id = "exportSameSpecies" type="submit" class="btn btn-primary" >Export</button>
+            <button id = "exportSameSpeciesFasta" type="submit" class="btn btn-primary" >Export Fasta</button>
         </div>
                 
     <!--</div>-->

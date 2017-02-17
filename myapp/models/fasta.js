@@ -10,8 +10,11 @@ var blastPathOut = path.join(__dirname, '..', 'ncbi-blast-2.5.0+/bin/dbtemp1');
 var blastPathResult = path.join(__dirname, '..', 'ncbi-blast-2.5.0+/bin/tempresult');
 var blast = path.join(__dirname, '..', 'ncbi-blast-2.5.0+/bin/blastp');
 var query = path.join(__dirname, '..', 'database/fasta/query.txt');
-var tempFile = path.join(__dirname, '..', 'database/tempFiles/temp.xls');
 var tempFile2 = path.join(__dirname, '..', 'database/tempFiles/temp2.gbff');
+// for download
+var tempFile = path.join(__dirname, '..', 'database/tempFiles/temp.xls');
+var tempFastaDownload = path.join(__dirname, '..', 'database/tempFiles/Samespecies_fasta');
+var tempFastaDownloadWithGeneNames = path.join(__dirname, '..', 'database/tempFiles/Samespecies2_fasta');
 
 
 exports.createFasta = function(){
@@ -217,10 +220,6 @@ function createFastaAux(wstream){
 					
 
 			}
-
-
-			
-
 			
 			
 		}
@@ -236,140 +235,7 @@ lineReader.on('close', () => {
 
 }
 
-// function createFastaAux(wstream){
 
-// 	var lineReader = readline.createInterface({
-// 		input: fs.createReadStream(tempFile2)
-// 	});
-
-// 	var flag = false;
-// 	var arrayAux = [];
-// 	var string;
-// 	lineReader.on('line', function (line) {
-// 		var translation;
-// 		line = line.trim();
-// 		/*if(line.endsWith('"'))
-// 		{
-// 			flag = false;
-// 		}*/
-// 		if(line.startsWith('/locus_tag'))
-// 		{
-// 			var gene = line.substr(11, line.length -11);
-// 			arrayAux.push("gene");
-// 			arrayAux.push(gene);
-// 		}
-		
-// 		if(line.startsWith('/translation'))
-// 		{
-// 			flag = true;
-// 			translation = line.substr(13, line.length -13);
-// 			//arrayAux.push("translation");
-// 			//arrayAux.push(translation);
-// 		}
-
-// 		if(flag)
-// 		{
-// 			arrayAux.push(line);
-// 			if(line.endsWith('"'))
-// 			{
-// 				flag = false;
-// 			}
-// 			//translation = line.substr(13, line.length -13);
-// 		}
-
-		/*if(line.startsWith('/translation'))
-		{
-			flag = true;
-			translation = line.substr(13, line.length -13);
-			string=[];
-			//arrayAux.push("translation");
-			//arrayAux.push(translation);
-		}
-
-		if(flag)
-		{
-			string += line;
-			if(line.endsWith('"'))
-			{
-				arrayAux.push(string);
-				flag = false;
-			}
-			//translation = line.substr(13, line.length -13);
-		}*/
-	//});
-
-	//lineReader.on('close', () => {
-		//console.log(createFastaPath);
-		//console.log(arrayAux);
-
-		/*for (var i = 0; i < arrayAux.length; i++) {
-			if(arrayAux[i].startsWith('/translation') && arrayAux[i-2] == "gene")
-			{
-				var gene = arrayAux[i-1].replace(/"/g, '');
-				wstream.write(">");
-				wstream.write(gene);
-				wstream.write("\n");
-				var translation = arrayAux[i].substr(13, arrayAux[i].length -13);
-				translation = translation.replace(/"/g, '');
-				wstream.write(translation);
-				wstream.write("\n");
-			}
-		}
-
-		wstream.end();
-
-		wstream.on('finish', function () {
-	  console.log('file has been written');
-	});*/
-	// var flag = false;
-	// for (var i = 0; i < arrayAux.length; i++) {
-		
-
-	// 		if(arrayAux[i].startsWith('/translation') && arrayAux[i-2] == "gene")
-	// 		{
-	// 			flag = true;
-	// 			if(arrayAux[i].endsWith('"'))
-	// 				flag=false;
-	// 			var gene = arrayAux[i-1].replace(/"/g, '');
-	// 			wstream.write(">");
-	// 			wstream.write(gene);
-	// 			wstream.write("\n");
-	// 			var translation = arrayAux[i].substr(13, arrayAux[i].length -13);
-	// 			translation = translation.replace(/"/g, '');
-	// 			wstream.write(translation);
-	// 			wstream.write("\n");
-
-	// 		}
-	// 		else if(flag)
-	// 		{
-	// 			if(arrayAux[i].endsWith('"')){
-	// 				var translation = arrayAux[i].replace('"','');
-	// 				flag=false;
-	// 				wstream.write(translation);
-	// 				wstream.write("\n");
-	// 			}
-	// 			else
-	// 				{
-	// 					wstream.write(arrayAux[i]);
-	// 					wstream.write("\n");
-	// 				}
-				
-
-	// 		}
-	// 	}
-
-	// 	wstream.end();
-
-	// 	wstream.on('finish', function () {
-	//   console.log('file has been written');
-	// });
-  		 
-	// 	});
-
-	
-//}
-
-/*****************************************************************************************************************************************************************************/
 
 exports.execCMD = function(especiesName){
 	var fullName = especiesName + "_fasta";
@@ -387,6 +253,7 @@ exports.execCMD = function(especiesName){
 
 
 exports.createFilePath = function(Name){
+	console.log("Entro file path");
 	var fileName;
 	var files = [];
 	var genes = [];
@@ -685,6 +552,101 @@ exports.forDownload = function(finalResult){
 		writeStream.end();
 }
 
+/*Route /download for fasta file */
+exports.createFastaDownload = function(genes, filePath, callback){
+	console.log("entrei na funcao");
+	var lineReader = readline.createInterface({
+		input: fs.createReadStream(filePath)
+	});
+
+	var wstream = fs.createWriteStream(tempFastaDownload);
+/*This will create query.txt file with gene and gene´s interactions from species1*/
+	var flag =  false;
+	lineReader.on('line', function (line) {
+		if(line.startsWith('>'))
+		{
+			flag = false;
+			for (var i = 0; i < genes.length; i++) {
+				if(genes[i] == line.substr(1, line.length -1)){
+					flag = true;
+				}
+			}
+		}
+		if(flag)
+		{
+			wstream.write(line);
+			wstream.write('\n');
+		}
+	});
+
+
+	lineReader.on('close', () => {
+  		 wstream.end();
+		});
+
+	wstream.on('finish', function () {
+	  console.log('file has been written');
+	  callback();
+	});
+
+	
+};
+
+exports.createFastaDownloadWithGeneNames = function(speciesName, callback){
+	console.log("Entrei na cuncao");
+	var addExtension = speciesName + ".txt";
+	var filePath = path.join(__dirname, '..', 'database/dictionary', addExtension);
+	var parseFile1 = fs.readFileSync(filePath, 'utf8');
+	//console.log(dictionary_aux);
+	
+
+	var parsedFile = parseFile(parseFile1, "teste");
+	var dictionary = parsedFile.fileName;
+	console.log(dictionary);
+
+	var lineReader = readline.createInterface({
+		input: fs.createReadStream(tempFastaDownload)
+	});
+
+	var wstream = fs.createWriteStream(tempFastaDownloadWithGeneNames);
+
+	var flag =  false;
+	lineReader.on('line', function (line) {
+	if(line.startsWith('>'))
+	{
+		flag = false;
+		for (var i = 0; i < dictionary.length; i++) {
+			if((line.substr(1, line.length -1)) == dictionary[i][0])
+			{
+				wstream.write('>');
+				wstream.write(dictionary[i][1]);
+				wstream.write('\n');
+			}
+		}
+		
+		
+		//Pesquisar no dicionario line.substr(1, line.length -1) que é o nome do gene
+		//escrever no novo ficheiro > e o nome do gene encontrado no dicionario e a sequencia respectiva ate encontrar o proximo >
+	}
+	if(flag)
+		{
+			wstream.write(line);
+			wstream.write('\n');
+		}
+		flag = true;
+});
+
+	lineReader.on('close', () => {
+  		 wstream.end();
+		});
+
+	wstream.on('finish', function () {
+	  console.log('file has been written 2');
+	  callback();
+	});
+
+}
+
 
 
 
@@ -702,6 +664,36 @@ function uniqBy(a, key) {
         var k = key(item);
         return seen.hasOwnProperty(k) ? false : (seen[k] = true);
     })
+}
+
+function parseFile(data, fileName){
+	var aux2;
+
+	var dataInJson = {
+			fileName:[]
+
+		};
+
+	// removing whitspaces
+		var aux = data.split("\n");
+
+
+		aux.forEach(function(item){
+			aux2 = item.split("\t");
+			aux2.forEach(function(part,index,theArray){
+				theArray[index] = part.trim();
+			});
+			//var gene = toObject(aux2);
+			dataInJson.fileName.push(aux2);
+		});
+		// remove duplicate elements
+		b = uniqBy(dataInJson.fileName, JSON.stringify)
+		//console.log(b);
+		dataInJson.fileName = b;
+		//console.log(dataInJson);
+		
+		return dataInJson;
+
 }
 
 

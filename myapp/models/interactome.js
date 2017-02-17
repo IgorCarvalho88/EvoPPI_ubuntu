@@ -7,6 +7,8 @@ var fileFolderPath = path.join(__dirname, '..', 'database/interactome');
 
 // path for temp interactions when user asks for next level
 var tempFile = path.join(__dirname, '..', 'database/tempFiles/tempState.txt');
+var tempFileSameSpecies = path.join(__dirname, '..', 'database/tempFiles/tempStateSameSpecies.txt');
+var tempSameSpeciesDown = path.join(__dirname, '..', 'database/tempFiles/tempSameSpecies.xls');
 
 
 exports.getAllInteractomes = function(fileName){
@@ -143,11 +145,89 @@ exports.saveInteractions1 = function(interactions1)
 		writeStream.end();
 }
 
+exports.saveInteractionsSameSpecies = function(interactions1)
+{
+	var row;
+		var writeStream = fs.createWriteStream(tempFileSameSpecies);
+		for (var i = 0; i < interactions1.length; i++) {
+			//console.log(interactions1[i]);
+			// this if is because to not write /n on last line
+			if(i != (interactions1.length-1))
+			{
+				row = interactions1[i][0] + "\t" + interactions1[i][1] + "\n";
+
+			}
+			else
+			{
+				row = interactions1[i][0] + "\t" + interactions1[i][1];
+			}
+			
+			writeStream.write(row);
+		}
+		writeStream.end();
+}
+
+/*exports.saveInteractionsSameSpeciesLevel = function(interactomeLevel)
+{
+	var row;
+		var writeStream = fs.createWriteStream(tempFileSameSpecies);
+		for (var i = 0; i < interactomeLevel.length; i++) {
+			//console.log(interactions1[i]);
+			// this if is because to not write /n on last line
+			if(i != (interactomeLevel.length-1))
+			{
+				row = interactomeLevel[i][0] + "\t" + interactomeLevel[i][1] + "\n";
+
+			}
+			else
+			{
+				row = interactomeLevel[i][0] + "\t" + interactomeLevel[i][1];
+			}
+			
+			writeStream.write(row);
+		}
+		writeStream.end();
+}*/
+
+exports.saveSameSpeciesInteractionsDownload = function(finalArray)
+{
+	//tempSameSpeciesDown
+	var row;
+		var writeStream = fs.createWriteStream(tempSameSpeciesDown);
+		for (var i = 0; i < finalArray.length; i++) {
+			//console.log(interactions1[i]);
+			// this if is because to not write /n on last line
+			if(i != (finalArray.length-1))
+			{
+				row = finalArray[i][0] + "\t" + finalArray[i][1] + "\t" + finalArray[i][2] + "\n";
+
+			}
+			else
+			{
+				//ultima linha
+				row = finalArray[i][0] + "\t" + finalArray[i][1] + "\t" + finalArray[i][2];
+			}
+			
+			writeStream.write(row);
+		}
+		writeStream.end();
+}
+
 exports.loadInteractions1 =  function()
 {
-	console.log("Load entro");
+	//console.log("Load entro");
 	var data;
 	data = fs.readFileSync(tempFile, 'utf8');
+	var parsedFile = parseFile(data, "teste");
+	return parsedFile.fileName;
+
+}
+
+exports.loadInteractionsSameSpecies =  function()
+{
+	//console.log("Load entro");
+	var data;
+	data = fs.readFileSync(tempFileSameSpecies, 'utf8');
 	var parsedFile = parseFile(data, "teste");
 	return parsedFile.fileName;
 
