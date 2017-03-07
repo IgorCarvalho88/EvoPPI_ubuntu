@@ -29,6 +29,8 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
 
 	//req.pipe(res);
+	 //var name = req.files.upload.name;
+	 //console.log(name);
 	var newFile = fs.createWriteStream(fileUploaded);
 	req.pipe(newFile);
 

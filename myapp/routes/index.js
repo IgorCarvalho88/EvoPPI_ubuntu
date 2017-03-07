@@ -74,7 +74,7 @@ router.get('/differentSpecies', function(req, res, next) {
 /*jsdefault --> jquery function  --> #fasta*/
 router.get('/differentSpecies/:fileName/:fileName2', function(req, res, next){
 
-		
+	res.connection.setTimeout(0);
 	var gene = req.query.gene;
 	var firstInteractome = interactome.readFile(req.query.interactome1);
 	var secondInteractome = interactome.readFile(req.query.interactome2);
@@ -142,6 +142,7 @@ router.get('/differentSpecies/:fileName/:fileName2', function(req, res, next){
 /*Route called by ajax function for different species page only*/
 /*jsdefault --> jquery function  --> myfunction2*/
 router.get('/createDbTemp/:fileName', function(req, res, next){
+	res.connection.setTimeout(0);
 	var especieName = req.params.fileName.replace(" ", "_");
 	//var especieName = req.params.fileName;
 	/*Runs Command creating the DB blast Referring to the second species */
@@ -173,6 +174,7 @@ router.get('/interactome/:fileName', function(req, res, next){
 /*Route called by ajax function for same species page only*/
 /*jsdefault --> jquery function  --> #sameSpecies*/
 router.get('/compare/:fileName', function(req, res, next){
+	res.connection.setTimeout(0);
 	var firstInteractome;
 	var secondInteractome;
 
@@ -217,6 +219,7 @@ router.get('/compare/:fileName', function(req, res, next){
 router.get('/level/compare/:fileName', function(req, res, next){
 
 	console.log("Entro level sameSpecies");
+	res.connection.setTimeout(0);
 	var firstInteractome;
 	var secondInteractome;
 
@@ -291,6 +294,7 @@ router.get('/level/compare/:fileName', function(req, res, next){
 
 router.post('/download/', function(req, res, next){
 	console.log(tempFile);
+	res.connection.setTimeout(0);
 	var finalResult = req.body;
 	fasta.forDownload(finalResult);
 	 res.download(tempFile);
@@ -308,7 +312,7 @@ router.get('/downloadSameSpecies/', function(req, res, next){
 
 router.get('/createSameSpeciesFasta/:fileName', function(req, res, next){
 	console.log("entrei");
-
+	res.connection.setTimeout(0);
 	var speciesName = req.params.fileName.replace(" ", "_");
 	var geneInteractions = interactome.loadInteractionsSameSpecies();
 
@@ -351,6 +355,7 @@ router.post('/downloadDifferentSpeciesFasta/', function(req, res, next){
 
 
 	console.log("entrei different species download");
+	res.connection.setTimeout(0);
 	var finalResult = req.body;
 	var speciesName = finalResult[0][0].replace(" ", "_");
 	//console.log(finalResult);
@@ -382,6 +387,7 @@ router.get('/downloadDifferentSpeciesFasta2/', function(req, res, next){
 
 router.get('/level/:fileName/:fileName2', function(req, res, next){
 	console.log(" Rota : entro");
+	res.connection.setTimeout(0);
 	var gene = req.query.gene;
 	var firstInteractome = interactome.readFile(req.query.interactome1);
 	var secondInteractome = interactome.readFile(req.query.interactome2);

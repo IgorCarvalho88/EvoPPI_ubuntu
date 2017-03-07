@@ -32,8 +32,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/upload', files);
 
-// app.use(function (req, res, next) {
-//   console.log(data);
+ //app.use(function (req, res, next) {
+   //res.connection.setTimeout(0); // this could take a while
 //   next();
 // });
 
